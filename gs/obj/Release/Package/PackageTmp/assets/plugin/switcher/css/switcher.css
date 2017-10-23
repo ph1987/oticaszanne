@@ -1,0 +1,128 @@
+/* Styles Switcher */
+
+#style-switcher {
+    background: #fff none repeat scroll 0 0;
+    border-radius: 0 0 3px;
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.2);
+    left: 0;
+    position: fixed;
+    top: 168px;
+    width: 220px;
+    z-index: 99999999999;
+}
+#style-switcher div {
+    padding: 15px 10px;
+}
+#style-switcher h2 {
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 0;
+    margin-right: 0;
+    margin-top: 0;
+    padding: 7px 0;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: #636363;
+}
+#style-switcher h2 a {
+    display: block;
+    height: 39px;
+    position: absolute;
+    right: -40px;
+    top: 0;
+    width: 40px;
+}
+#style-switcher h2 a i {
+    color: #fff;
+    font-size: 20px;
+    left: 10px;
+    position: absolute;
+    top: 9px;
+}
+
+.colors {
+    padding-left: 7px;
+}
+.colors {
+    list-style: none;
+    margin: 0px 0px 10px 0px;
+    overflow: hidden;
+}
+.colors li {
+    float: left;
+}
+.colors li a {
+    border-radius: 100px;
+    cursor: pointer;
+    display: block;
+    height: 35px;
+    margin: 6px;
+    width: 35px;
+}
+.layout-style select {
+    width: 100%;
+    padding: 5px;
+    border: none;
+    margin: 0 0 0 -5px;
+    color: #fff;
+    cursor: pointer;
+}
+
+#reset {
+    margin: 0 0 15px 2px;
+}
+
+#reset a {
+    color: #fff;
+    font-size: 12px;
+}
+.color {
+    background: #1bbc9b;
+}
+.color1 {
+    background: #03a9f4;
+}
+.color2 {
+    background: #ee3054;
+}
+.color3 {
+    background: #e45914;
+}
+.color4 {
+    background: #ff943b;
+}
+.color5 {
+    background: #77be32;
+}
+.color6 {
+    background: #d786fe;
+}
+.color7 {
+    background: #d01e1e;
+}
+
+.icon-2x {
+    color: #fff;
+    font-size: 22px;
+    line-height: 30px;
+}
+
+.item-version{}
+.item-version ul{
+    padding: 0;
+    margin: 0;
+list-style: none;
+}
+.item-version ul li{
+    display: block;
+    text-align: center;
+    
+}
+.item-version ul li a {
+	display: block;
+	background: #FF5252;
+	margin-bottom: 8px;
+	padding: 6px;
+	/* text-transform: uppercase; */
+	color: #fff;
+}

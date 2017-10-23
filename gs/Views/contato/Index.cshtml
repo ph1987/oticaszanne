@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="breadcrumb-section-box">
+    <div class="special-style special-style-full special-style-semidark col-md-12 col-md-offset-0 pull-right">
+        <div class="bg-image" style="background-image:url(@Url.Content("~/assets/img/all/breadcrumb-img.png"));"></div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 pad-top100 pad-bottom100 heading-box">
+                <h3 class="heading-breadcrumb box-z text-center">Contato</h3>
+                <div class="clear"></div>
+                <div class="breadcrumb-box">
+                    <ul class="breadcrumb">
+                        <li>
+                            <a class="sab-heading-breadcrumb box-z" href="@Url.RouteUrl(new { controller = "home", action = "Index" })">home</a>
+                        </li>
+                        <li class="heading-wa box-z activ">Contato</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="blog-griad">
+    <div class="container">
+        <div class="row">
+            <div class="message-box-sec1 pad-top80 pad-bottom80">
+                <div class="col-md-6 col-sm-6 col-xs-12 siad-bar-sec">
+                    <h3 class="theme-headdings">Envie sua mensagem</h3>
+                    <div class="row pad-top25">
+                        <div class="col-md-12 col-sm-12 col-xs-12 Profile setting box">
+                            <p>
+                                <label>Nome</label>
+                                <input type="text" class="search_terms" placeholder="">
+                            </p>
+                            <p>
+                                <label>Email</label>
+                                <input type="text" class="search_terms" placeholder="">
+                            </p>
+                            <p>
+                                <label>Telefone</label>
+                                <input type="text" class="search_terms" placeholder="">
+                            </p>
+                            <p>
+                                <label>Mensagem</label>
+                                <textarea cols="10" rows="5" placeholder="" id="order_comments" class="form-controller search_terms" name="order_comments"></textarea>
+                            </p>
+                            <button type="button" class="itg-button mar-top20">Enviar Mensagem</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

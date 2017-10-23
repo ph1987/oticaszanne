@@ -1,0 +1,224 @@
+﻿@*<script type="text/javascript">
+    function addCart(idproduto, modal, preco) {
+        alert(idproduto);
+        var idmodal = "#" + modal;
+        var qtd = "#qty-" + idproduto;
+        alert($(qtd).val());
+        alert(preco);
+        @{
+            string idModal = 
+            HttpCookie aCookie = new HttpCookie("cart");
+            aCookie.Value = 
+            aCookie.Expires = DateTime.Now.AddDays(1);
+            Response.Cookies.Add(aCookie);
+        }
+        $(function () {
+            $(idmodal).modal('toggle');
+        });
+    }
+</script>*@
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    gs.Models.gsEntities db = new gs.Models.gsEntities();
+}
+<div class="quick-vive-popap">
+    <div class="container">
+        @foreach (var g in ViewBag.glasses)
+        {
+            int idglass = g.id;
+            string modal = "myModal" + idglass;
+            IEnumerable<gs.Models.arquivos> fotoOculos = (from o in db.arquivos where o.referencia_id == idglass orderby o.ordem ascending select o).ToList();
+            <div class="modal fade" id="@modal">
+                <div class="modal-dialog modal-lg">
+                    <div class="Quick-view-popup modal-content text-left">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="col-md-12 col-xs-12 popap-open-box">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <div class="row">
+                                        <div class="col-xs-12 marB30">
+                                            <figure>
+                                                @if (fotoOculos.Count() > 0)
+                                                {
+                                                    <img src="@Url.Content("~/uploads/" + fotoOculos.FirstOrDefault().filename)" alt="">
+                                                }
+                                                else
+                                                {
+                                                    <img src="@Url.Content("~/assets/img/all/product-detail.png")" alt="">
+                                                }
+                                            </figure>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-12 responsive-top">
+                                @using (Html.BeginForm("Index", "Home", new { idprod = g.id }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
+                                    <h3 class="theme-headdings text-left product-detail-title"><a href="#">@g.titulo</a></h3>
+                                    <div class="star-box-section left product-det text-left pad-top15">
+                                    </div>
+                                    <div class="clear"></div>
+                                    <div class="per-box texy-left mar-top15">
+                                        <p>@g.descricao</p>
+                                    </div>
+                                    <div class="col-md-6 col-sm-7 row">
+                                        <div class="order-data box order-table text-center padTB15">
+                                            <div class="order-table-cell order-text product-input-type">
+                                                <input type="number" min="1" value="1" class="qty" name="qty-@g.id" id="qty-@g.id">
+                                                <input type="hidden" value="@g.preco" name="preco-@g.id" id="preco-@g.id" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-7 col-sm-7 product-box-btm-blog row">
+                                        <input type="submit" class="itg-button mar-top15" value="Adicionar ao carrinho" />
+                                        @*<a href="javascript:addCart(@g.id,'@modal', @g.preco);" class="itg-button mar-top15">Adicionar ao carrinho</a>*@
+                                    </div>
+                                }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<!--//================Quick view End ==============//-->
+<!--//===Products-sectioon Start==//-->
+<section>
+    <div class="products-section pad-bottom80">
+        <div class="container">
+            <div class="row">
+                <div class="headding-box">
+                </div>
+                <div class="products mar-top40">
+                    @{ 
+                        int i = 0;
+                        string classeColuna = "";
+                    }
+                    @foreach (var g in ViewBag.glasses)
+                    {
+                        if ((i % 4) != 0)
+                        {
+                            classeColuna = "responsive-top";
+                        }
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <figure class="itg-hover-style2">
+                                @{
+                                    int idglass = g.id;
+                                    string modal = "#myModal" + idglass;
+                                    IEnumerable<gs.Models.arquivos> fotoOculos = (from o in db.arquivos where o.referencia_id == idglass orderby o.ordem ascending select o).ToList();
+                                }
+                                @if (fotoOculos.Count() > 0)
+                                {
+                                    <img src="@Url.Content("~/uploads/" + fotoOculos.FirstOrDefault().filename)" alt="">
+                                }
+                                else
+                                {
+                                    <img src="@Url.Content("~/assets/img/Products/Products1.png")" alt="">
+                                }
+                                <div class="products-boxes">
+                                    <ul class="icon-hover">
+                                        <li><a data-toggle="modal" data-target="@modal" href="#"><i class="fa fa-eye" aria-hidden="true" title="Visualizar"></i></a></li>
+                                        <li><a href="@Url.RouteUrl(new { controller = "oculos", action = "Index", slug = @g.slug,  id = @g.id })"><i class="fa fa-shopping-cart" aria-hidden="true" title="Adicionar ao carrinho"></i></a></li>
+                                    </ul>
+                                </div>
+                                <figcaption class="figure-boxx figure-section-hover">
+                                    <h4 class="theme-headdings text-center pad-top10"><a href="@Url.RouteUrl(new { controller = "oculos", action = "Index", slug = @g.slug,  id = @g.id })">@g.titulo</a></h4>
+                                    <p>R$@g.preco</p>
+                                </figcaption>
+                            </figure>
+                        </div>
+                    }
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+<!--//===Products-sectioon End==//-->
+<!--//===Categories-section Start==//-->
+@*<section>
+    <div class="Categories-box pad-top80 pad-bottom80">
+        <div class="container">
+            <div class="row">
+                <div class="headding-box">
+                    <h3 class="theme-headdings">Categorias</h3>
+                    <p>Escolha o óculos pelo seu estilo favorito</p>
+                </div>
+                <div class="Categories-blog pad-top40">
+                    @foreach (var e in ViewBag.estilo_oculos)
+                    {
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <figure class="itg-hover-style1">
+                                <img src="@Url.Content("~/assets/img/aviador.png")" alt="">
+                                <figcaption class="pad-bottom10 figure-boxx cotegories">
+                                    <h4 class="theme-headdings text-center">@e.titulo</h4>
+                                    <div class="categorie-text-box">
+                                        <h4><a href="collection-list-sidebar.html">@e.titulo</a></h4>
+                                        <p>@e.descricao</p>
+                                        <a href="@Url.RouteUrl(new { controller = "home", action = "Index",  filtro = @e.titulo })" class="itg-button mar-top20">Filtrar</a>
+                                    </div>
+                                </figcaption>
+                            </figure>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>*@
+<!--//===Categories-section End==//-->
+<!--//===Partner-section Start==//-->
+@*<section>
+    <div class="Partner-section pad-bottom80">
+        <div class="container">
+            <div class="row">
+                <div class="headding-box mar-bottom40">
+                    <h3 class="theme-headdings">Marcas</h3>
+                    <p>
+                        Nossas principais marcas
+                    </p>
+                </div>
+                <div id="Partner-slider" class="owl-carousel owl-theme">
+                    <div class="item">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <figure class="partner-figures">
+                                <img src="@Url.Content("~/assets/img/rayban.png")" alt="">
+                            </figure>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <figure class="partner-figures">
+                                <img src="@Url.Content("~/assets/img/mormaii.jpg")" alt="">
+                            </figure>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <figure class="partner-figures">
+                                <img src="@Url.Content("~/assets/img/oakley.jpg")" alt="">
+                            </figure>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <figure class="partner-figures">
+                                <img src="@Url.Content("~/assets/img/all/Partner4.png")" alt="">
+                            </figure>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <figure class="partner-figures">
+                                <img src="@Url.Content("~/assets/img/all/Partner2.png")" alt="">
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>*@

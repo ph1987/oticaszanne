@@ -1,0 +1,281 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+
+    <link href="@Url.Content("~/Content/admin/css/styles.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/admin/css/colorbox.css")" rel="stylesheet" type="text/css" />
+    <style type="text/css" title="currentStyle">
+		@@import "@Url.Content("~/Scripts/media/css/demo_page.css")";
+		@@import "@Url.Content("~/Scripts/media/css/demo_table.css")";
+    </style>
+    <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+    <script type="text/javascript" language="javascript" src="@Url.Content("~/Scripts/media/js/jquery.dataTables.js")"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
+    <script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
+    <script src="@Url.Content("~/Scripts/jquery.colorbox.js")" type="text/javascript"></script>
+    <script type="text/javascript" src="http://jzaefferer.github.com/jquery-validation/jquery.validate.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function ()
+        {
+            $("#datepicker").datepicker
+		    (
+			    {
+			        dateformat: "dd-mm-yy",
+			        closeText: "Fechar",
+			        prevText: "Anterior",
+			        nextText: "Pr&oacute;ximo",
+			        currentText: 'Hoje',
+			        monthNames: ['Janeiro', 'Fevereiro', 'Mar&ccedil;o', 'Abril', 'Maio', 'Junho',
+				    'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+			        monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun',
+				    'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+			        dayNames: ['Domingo', 'Segunda-feira', 'Ter&ccedil;a-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sabado'],
+			        dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
+			        dayNamesMin: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'],
+			        weekHeader: 'Sm',
+			        dateFormat: 'dd/mm/yy',
+			        isRTL: false,
+			        showMonthAfterYear: false,
+			        yearSuffix: ''
+			    }
+		        );
+		});
+    </script>
+
+    <!-- ======== datatable ======== -->
+
+    <script type="text/javascript" charset="utf-8">
+		$(document).ready(function () {
+		    $('#example').dataTable({
+		        "aoColumnDefs": [{ "aTargets": [0], "bSearchable": true }, { "aTargets": [1], "bSearchable": false }, { "aTargets": [-1], "bSearchable": false } ]   //define para apenas a primeira coluna valer no search
+		    });
+		});
+    </script>
+
+
+    <script type="text/javascript">
+        //Função genérica para remover os registros com uma mensagem de advertência.
+        function DeleteReg(id, controller)
+        {
+            var s = '@(Request.QueryString["s"])';
+            var answer = confirm("Deseja excluir este registro?")
+            if (answer) {
+                //window.location = "../" + controller + "/Delete/" + id;
+                window.location = "../" + controller + "/Delete/" + id + "?s=" + s;
+            }
+        }
+
+        function DeleteImg(id, controller) {
+            var answer = confirm("Deseja excluir esta imagem?")
+            if (answer) {
+                window.location = "../../" + controller + "/DeleteImg/" + id;
+            }
+        }
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#theForm").validate({
+                rules: {
+                    titulo: {
+                        required: true
+                    }
+                },
+                messages: {
+                    titulo: {
+                        required: 'campo título precisa ser preenchido'
+                    }
+                }
+            });
+
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#theForm2").validate({
+                rules: {
+                    titulo: {
+                        required: true
+                    }
+                },
+                messages: {
+                    titulo: {
+                        required: 'campo título precisa ser preenchido'
+                    }
+                }
+            });
+
+        });
+    </script>
+
+
+    @*    <script src="@Url.Content("~/Scripts/tiny_mce/jquery.tinymce.js")" type="text/javascript"></script>*@
+
+    <!-- ======== COLORBOX ========= -->
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //Examples of how to assign the ColorBox event to elements
+            $("a[rel='example1']").colorbox();
+            $("a[rel='steps']").colorbox({ transition: "fade" });
+            $("a[rel='example3']").colorbox({ transition: "none", width: "75%", height: "75%" });
+            $("a[rel='example4']").colorbox({ slideshow: true });
+            $(".example5").colorbox();
+            $(".example6").colorbox({ iframe: true, innerWidth: 425, innerHeight: 344 });
+            $(".example7").colorbox({ width: "80%", height: "80%", iframe: true });
+            $(".example8").colorbox({ width: "600px", inline: true, href: "#inline_example1" });
+            $(".example9").colorbox({
+                onOpen: function () { alert('onOpen: colorbox is about to open'); },
+                onLoad: function () { alert('onLoad: colorbox has started to load the targeted content'); },
+                onComplete: function () { alert('onComplete: colorbox has displayed the loaded content'); },
+                onCleanup: function () { alert('onCleanup: colorbox has begun the close process'); },
+                onClosed: function () { alert('onClosed: colorbox has completely closed'); }
+            });
+
+            //Example of preserving a JavaScript event for inline calls.
+            $("#click").click(function () {
+                $('#click').css({ "background-color": "#f00", "color": "#fff", "cursor": "inherit" }).text("Open this window again and this message will still be here.");
+                return false;
+            });
+        });
+    </script>
+    <!-- ======== COLORBOX ========= -->
+
+    <script type="text/javascript">
+            $().ready(function () {
+
+                $("ul.dropdown li").hover(function () {
+
+                    $(this).addClass("hover");
+                    $('ul:first', this).css('visibility', 'visible');
+
+                }, function () {
+
+                    $(this).removeClass("hover");
+                    $('ul:first', this).css('visibility', 'hidden');
+
+                });
+
+                $("ul.dropdown li ul li:has(ul)").find("a:first").append(" &raquo; ");
+
+            });
+    </script>
+    <script type="text/javascript">
+            //cria classe "last" no último elemento de um grupo
+            $().ready(function () {
+                $(".content-box table tr:even").addClass("stripe");
+            });
+    </script>
+
+    <script language="JavaScript" type="text/javascript">
+            function mascaraData(campoData) {
+                var data = campoData.value;
+                if (data.length == 2) {
+                    data = data + '/';
+                    document.forms[1].data.value = data;
+                    return true;
+                }
+                if (data.length == 5) {
+                    data = data + '/';
+                    document.forms[1].data.value = data;
+                    return true;
+                }
+            }
+    </script>
+
+    <script language="JavaScript" type="text/javascript">
+            function enviardados() {
+                if (document.dados.nome.value == "" || document.dados.nome.value.length < 3 || document.dados.nome.value == "Nome")
+                {
+                    alert("Preencha campo NOME corretamente!");
+                    document.dados.nome.focus();
+                    return false;
+                }
+                if (document.dados.idioma.value == 0) {
+                    alert("Preencha campo IDIOMA corretamente!");
+                    document.dados.idioma.focus();
+                    return false;
+                }
+                return true;
+            }
+    </script>
+
+    @*<script type="text/javascript">
+        $().ready(function () {
+            $('textarea.tinymce').tinymce({
+                script_url: '@Url.Content("~/Scripts/tiny_mce/tiny_mce.js")',
+                theme: "advanced",
+                theme_advanced_toolbar_location: "top",
+                theme_advanced_toolbar_align: "left",
+                theme_advanced_statusbar_location: "bottom",
+                theme_advanced_buttons2 : "cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,cleanup,help,code,|,insertdate,inserttime,preview,|,forecolor,backcolor",
+            });
+        });
+        </script>*@
+</head>
+@*
+    @{
+        if (Session["adm"] == null)
+        {
+            Response.Redirect(Url.Action("Login", "meueditor"));
+        }
+    }
+*@
+@*@{ Session["adm"] = "logado"; }*@
+
+<body>
+    <div class="desktop">
+        <div class="content clearfix">
+            <div id="header" class="header">
+                <div class="meio">
+                    <h1 class="header_logo"></h1><!-- /header_logo -->
+                    @*                        @if ((Session["adm"] != "logado") && (Session["editor"] != "logado") && (Session["colaborador"] != "logado"))
+                        {
+                            Response.Redirect(Url.Action("Login", "meueditor"));
+                        }  *@
+                    <span style="background-color:Lime;">@TempData["duvida"]</span>
+
+                    <div class="header_config">
+                        <div class="TipLayer ajuda"></div>
+                        @*<a href="@Url.RouteUrl(new { controller = "logs", action = "Index" })">Logs |</a>*@
+                        <a href="@Url.RouteUrl(new { controller = "meueditor", action = "Index" })">Usuários |</a>
+                        <a href="@Url.RouteUrl(new { controller = "meueditor", action = "Logout" })">Logout</a>
+                    </div><!--/header_config-->
+                </div><!--/meio-->
+            </div><!--/header-->
+            <div class="meio mg-bottom">
+                <div class="menu left ">
+                    <ul id="navlist" class="dropdown">
+                        <li><a href="@Url.RouteUrl(new { controller = "home", action = "Index" })" title="site">ir para o site</a></li>
+                        @*<li><a href="@Url.RouteUrl(new { controller = "banners", action = "Index" })" title="site">imagens da home</a></li>*@
+                        <li><a href="@Url.RouteUrl(new { controller = "categorias", action = "Index", s = "estilo_de_oculos" })" title="site">estilo de óculos</a></li>
+                        <li><a href="@Url.RouteUrl(new { controller = "categorias", action = "Index", s = "cor_da_armacao" })" title="site">cor da armação</a></li>
+                        <li><a href="@Url.RouteUrl(new { controller = "categorias", action = "Index", s = "tipo_de_lente" })" title="site">tipo de lente</a></li>
+                        <li><a href="@Url.RouteUrl(new { controller = "marcas", action = "Index" })" title="site">marcas</a></li>
+                        <li><a href="@Url.RouteUrl(new { controller = "formatos", action = "Index" })" title="site">formatos</a></li>
+                        <li><a href="@Url.RouteUrl(new { controller = "admOculos", action = "Index" })" title="site">óculos</a></li>
+                        @*<li><a href="@Url.RouteUrl(new { controller = "contatos", action = "Index" })" title="site">contatos</a></li>*@
+                    </ul>
+                </div><!-- /menu -->
+                <div class="tam_760 left">
+                    <div class="conteudo">
+                        <!-- CONTEUDO -->
+                        @RenderBody()
+                        <!-- /CONTEUDO -->
+                        <div class="clear"></div>
+                    </div><!-- /conteudo -->
+                </div><!-- /tam_940 -->
+                <div class="clear"></div>
+            </div><!-- /meio -->
+        </div><!-- /content -->
+    </div><!-- /desktop -->
+    <div class="footer">
+        <div class="absolute sombra"></div>
+        <div class="absolute fundo-escuro"></div>
+    </div><!--/footer-->
+</body>
+</html>
+

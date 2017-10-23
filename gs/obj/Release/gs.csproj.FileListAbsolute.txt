@@ -1,0 +1,76 @@
+C:\Users\ph198\documents\visual studio 2015\Projects\gs\gs\bin\roslyn\csc.exe
+C:\Users\ph198\documents\visual studio 2015\Projects\gs\gs\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\ph198\documents\visual studio 2015\Projects\gs\gs\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\ph198\documents\visual studio 2015\Projects\gs\gs\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\ph198\documents\visual studio 2015\Projects\gs\gs\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\ph198\documents\visual studio 2015\Projects\gs\gs\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\ph198\documents\visual studio 2015\Projects\gs\gs\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\ph198\documents\visual studio 2015\Projects\gs\gs\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\ph198\documents\visual studio 2015\Projects\gs\gs\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\ph198\documents\visual studio 2015\Projects\gs\gs\bin\roslyn\vbc.exe
+C:\Users\ph198\documents\visual studio 2015\Projects\gs\gs\bin\roslyn\VBCSCompiler.exe
+C:\Users\ph198\documents\visual studio 2015\Projects\gs\gs\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\ph198\documents\visual studio 2015\Projects\gs\gs\bin\gs.dll.config
+C:\Users\ph198\documents\visual studio 2015\Projects\gs\gs\bin\gs.dll
+C:\Users\ph198\documents\visual studio 2015\Projects\gs\gs\bin\gs.pdb
+C:\Users\ph198\documents\visual studio 2015\Projects\gs\gs\bin\EntityFramework.dll
+C:\Users\ph198\documents\visual studio 2015\Projects\gs\gs\bin\EntityFramework.SqlServer.dll
+C:\Users\ph198\documents\visual studio 2015\Projects\gs\gs\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\ph198\documents\visual studio 2015\Projects\gs\gs\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\ph198\documents\visual studio 2015\Projects\gs\gs\bin\MySql.Data.dll
+C:\Users\ph198\documents\visual studio 2015\Projects\gs\gs\bin\MySql.Data.Entity.EF6.dll
+C:\Users\ph198\documents\visual studio 2015\Projects\gs\gs\bin\System.Web.Helpers.dll
+C:\Users\ph198\documents\visual studio 2015\Projects\gs\gs\bin\System.Web.Mvc.dll
+C:\Users\ph198\documents\visual studio 2015\Projects\gs\gs\bin\System.Web.Razor.dll
+C:\Users\ph198\documents\visual studio 2015\Projects\gs\gs\bin\System.Web.Webpages.Deployment.dll
+C:\Users\ph198\documents\visual studio 2015\Projects\gs\gs\bin\System.Web.Webpages.dll
+C:\Users\ph198\documents\visual studio 2015\Projects\gs\gs\bin\System.Web.Webpages.Razor.dll
+C:\Users\ph198\documents\visual studio 2015\Projects\gs\gs\bin\EntityFramework.xml
+C:\Users\ph198\documents\visual studio 2015\Projects\gs\gs\bin\EntityFramework.SqlServer.xml
+C:\Users\ph198\documents\visual studio 2015\Projects\gs\gs\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\ph198\documents\visual studio 2015\Projects\gs\gs\bin\System.Web.Razor.xml
+C:\Users\ph198\documents\visual studio 2015\Projects\gs\gs\bin\System.Web.Webpages.xml
+C:\Users\ph198\documents\visual studio 2015\Projects\gs\gs\bin\System.Web.Webpages.Deployment.xml
+C:\Users\ph198\documents\visual studio 2015\Projects\gs\gs\bin\System.Web.Webpages.Razor.xml
+C:\Users\ph198\documents\visual studio 2015\Projects\gs\gs\bin\System.Web.Helpers.xml
+C:\Users\ph198\documents\visual studio 2015\Projects\gs\gs\bin\System.Web.Mvc.xml
+C:\Users\ph198\documents\visual studio 2015\Projects\gs\gs\obj\Release\gs.dll
+C:\Users\ph198\documents\visual studio 2015\Projects\gs\gs\obj\Release\gs.pdb
+C:\Users\ph198\Desktop\gs\gs\bin\roslyn\csc.exe
+C:\Users\ph198\Desktop\gs\gs\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\ph198\Desktop\gs\gs\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\ph198\Desktop\gs\gs\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\ph198\Desktop\gs\gs\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\ph198\Desktop\gs\gs\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\ph198\Desktop\gs\gs\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\ph198\Desktop\gs\gs\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\ph198\Desktop\gs\gs\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\ph198\Desktop\gs\gs\bin\roslyn\vbc.exe
+C:\Users\ph198\Desktop\gs\gs\bin\roslyn\VBCSCompiler.exe
+C:\Users\ph198\Desktop\gs\gs\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\ph198\Desktop\gs\gs\bin\gs.dll.config
+C:\Users\ph198\Desktop\gs\gs\bin\gs.dll
+C:\Users\ph198\Desktop\gs\gs\bin\gs.pdb
+C:\Users\ph198\Desktop\gs\gs\bin\EntityFramework.dll
+C:\Users\ph198\Desktop\gs\gs\bin\EntityFramework.SqlServer.dll
+C:\Users\ph198\Desktop\gs\gs\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\ph198\Desktop\gs\gs\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\ph198\Desktop\gs\gs\bin\MySql.Data.dll
+C:\Users\ph198\Desktop\gs\gs\bin\MySql.Data.Entity.EF6.dll
+C:\Users\ph198\Desktop\gs\gs\bin\System.Web.Helpers.dll
+C:\Users\ph198\Desktop\gs\gs\bin\System.Web.Mvc.dll
+C:\Users\ph198\Desktop\gs\gs\bin\System.Web.Razor.dll
+C:\Users\ph198\Desktop\gs\gs\bin\System.Web.Webpages.Deployment.dll
+C:\Users\ph198\Desktop\gs\gs\bin\System.Web.Webpages.dll
+C:\Users\ph198\Desktop\gs\gs\bin\System.Web.Webpages.Razor.dll
+C:\Users\ph198\Desktop\gs\gs\bin\EntityFramework.xml
+C:\Users\ph198\Desktop\gs\gs\bin\EntityFramework.SqlServer.xml
+C:\Users\ph198\Desktop\gs\gs\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\ph198\Desktop\gs\gs\bin\System.Web.Razor.xml
+C:\Users\ph198\Desktop\gs\gs\bin\System.Web.Webpages.xml
+C:\Users\ph198\Desktop\gs\gs\bin\System.Web.Webpages.Deployment.xml
+C:\Users\ph198\Desktop\gs\gs\bin\System.Web.Webpages.Razor.xml
+C:\Users\ph198\Desktop\gs\gs\bin\System.Web.Helpers.xml
+C:\Users\ph198\Desktop\gs\gs\bin\System.Web.Mvc.xml
+C:\Users\ph198\Desktop\gs\gs\obj\Release\gs.dll
+C:\Users\ph198\Desktop\gs\gs\obj\Release\gs.pdb

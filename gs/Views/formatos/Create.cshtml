@@ -1,0 +1,50 @@
+﻿@model gs.Models.formatos
+
+@{
+    ViewBag.Title = "formatos | Create";
+    Layout = "~/Views/Shared/_LayoutAdm.cshtml";
+}
+
+<div class="content-box">
+    <div class="content-box-header">
+        <h3>formatos<span class="separa"></span><span>Adicionar</span></h3>
+        <span style="float:right; margin-top:15px;">@Html.ActionLink("<- Voltar", "Index")</span>
+    </div> <!-- /content-box -->
+
+    <div class="content-box-content">
+
+        <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+        <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+        @using (Html.BeginForm("Create", "formatos", FormMethod.Post, new { @id = "theForm", enctype = "multipart/form-data" }))
+        {
+            @Html.ValidationSummary(true)
+            <fieldset>
+                <legend>formatos</legend>
+
+                <div class="editor-label">
+                    @Html.LabelFor(model => model.titulo)
+                </div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(model => model.titulo, new { @class = "medium-input" })
+                    @Html.ValidationMessageFor(model => model.titulo)
+                </div>
+
+                <div class="editor-field">
+                    <label>@Html.RadioButtonFor(model => model.status, 0)Não exibir no site</label>
+                    <label>@Html.RadioButtonFor(model => model.status, 1, new { @checked = "checked" })Exibir no site</label>
+                </div>
+
+                <p>
+                    <input type="submit" value="Adicionar" />
+                </p>
+
+            </fieldset>
+        }
+    </div>
+</div>
+
+
+
+
+

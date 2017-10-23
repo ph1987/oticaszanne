@@ -1,0 +1,34 @@
+/*
+    ColorBox Core Style
+    The following rules are the styles that are consistant between themes.
+    Avoid changing this area to maintain compatability with future versions of ColorBox.
+*/
+#colorbox, #cboxOverlay, #cboxWrapper{position:absolute; top:0; left:0; z-index:9999; }
+#cboxOverlay{position:fixed; width:100%; height:100%;}
+#cboxMiddleLeft, #cboxBottomLeft{clear:left;}
+#cboxContent{position:relative; overflow:visible;}
+#cboxLoadedContent{overflow:auto;}
+#cboxLoadedContent iframe{display:block; width:100%; height:100%; border:0;}
+#cboxTitle, #cboxClose{ display:none!important; }
+#cboxLoadingOverlay, #cboxLoadingGraphic{position:absolute; top:0; left:0; width:100%;}
+#cboxPrevious, #cboxNext, #cboxClose, #cboxSlideshow{cursor:pointer;}
+#cboxOverlay{background:#494949;}
+
+/*
+  Duvidas
+*/
+
+div.duvidas { background-color:#fff; border: 1px solid black; }
+div.duvidas .topo{ background:#3a3939;}
+div.duvidas .topo img{ margin: 19px 0 0 21px;width: 117px;}
+div.duvidas .topo .cabecalho { background:url(../imgs/img-footer-linha.gif) top left repeat-y #424141; padding: 15px 0 15px 29px; width: 431px; }
+div.duvidas .topo .cabecalho h2 { color:#fff; } 
+div.duvidas .topo .cabecalho h2 span{ color: #fe9b53; } 
+div.duvidas form {padding: 25px; background: url("../imgs/img-footer-sombra.png") repeat-x scroll center top transparent;}
+div.duvidas p { margin-bottom:15px;}
+div.duvidas label { display:block; margin-bottom:3px;}
+div.duvidas p input[name="Empresa"], div.duvidas p input[name="Nome"] { width:250px;}
+div.duvidas p input[name="Email"] { width:392px;}
+div.duvidas p input[name="Tel"] { width:108px;}
+div.duvidas input[name="Enviar"] {background-color:#67A326; cursor:pointer;   border: 1px solid #3C821A; color: #FFFFFF;}
+div.duvidas p input, div.duvidas p textarea{ background-color:#f6f6e9; } 

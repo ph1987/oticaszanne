@@ -1,0 +1,223 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    gs.Models.gsEntities db = new gs.Models.gsEntities();
+    decimal calculoTotalPedido = 0;
+}
+
+<div class="breadcrumb-section-box">
+    <div class="special-style special-style-full special-style-semidark col-md-12 col-md-offset-0 pull-right">
+        <div class="bg-image" style="background-image:url(@Url.Content("~/assets/img/all/breadcrumb-img.png"));"></div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 pad-top100 pad-bottom100 heading-box">
+                <h3 class="heading-breadcrumb box-z text-center">Carrinho</h3>
+                <div class="clear"></div>
+                <div class="breadcrumb-box">
+                    <ul class="breadcrumb">
+                        <li>
+                            <a class="sab-heading-breadcrumb box-z" href="@Url.RouteUrl(new { controller = "home", action = "Index" })">home</a>
+                        </li>
+                        <li class="heading-wa box-z activ">Carrinho</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="blog-griad">
+    <div class="container">
+        @if (ViewBag.itensPedidoCarrinho != null)
+        {
+        <div class="row">
+            <div class="col-md-12 col-sm-12  col-xs-12 pad-top80 pad-bottom40">
+                <div class="clear"></div>
+                    <div class="hidden-xs pad-top-bottom15 order-bosx price">
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="row">
+                                    <div class="col-md-1 col-sm-1 col-xs-12">
+                                        <div class="text-c  order-data grey-bg text-center pad15"></div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-12">
+                                        <div class="text-c order-data grey-bg text-center pad15">
+                                            <h4>Produto</h4>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 col-sm-2 marB30">
+                                        <div class="text-c order-data grey-bg text-center pad15">
+                                            <h4>Preço</h4>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 col-sm-2 marB30">
+                                        <div class="text-c order-data grey-bg text-center pad15">
+                                            <h4>Quantidade</h4>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 col-sm-2 marB30">
+                                        <div class="text-c order-data grey-bg text-center pad15">
+                                            <h4>Total</h4>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1 col-sm-1 marB30">
+                                        <div class="text-c order-data grey-bg text-center pad15">
+                                            <h4>Status</h4>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-1 col-sm-1 col-xs-12">
+                                        <div class="text-c order-data grey-bg text-center pad15"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-order-table">
+                        @foreach (var ipd in ViewBag.itensPedidoCarrinho)
+                        {
+                            calculoTotalPedido = calculoTotalPedido + (ipd.preco * ipd.quantidade);
+                            <div class="row">
+                                <div class="col-md-12 col-md-12 col-xs-12 pad-top40 pad-bottom50">
+                                    <div class="row">
+                                        <div class="order-row padTB20">
+                                            <div class="col-md-1 col-sm-1 col-xs-1"></div>
+                                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                                <div class="row">
+                                                    <div class="text-c b order-data order-table padTB15 text-center">
+                                                        <div class="order-table-cell">
+                                                            <div class="col-md-4 col-sm-6 col-xs-12 col-xs-12">
+                                                                @{
+                                                                    int oculosId = ipd.oculos_id;
+                                                                    var imgItemPedido = db.arquivos.Where(t => t.referencia_id == oculosId).OrderBy(t => t.ordem).FirstOrDefault();
+                                                                }
+                                                                @if (imgItemPedido != null)
+                                                                {
+                                                                    <img src="@Url.Content("~/uploads/" + imgItemPedido.filename)" alt="" />
+                                                                }
+                                                                else
+                                                                {
+                                                                    <img src="@Url.Content("~/assets/img/all/cart-img1.jpg")" alt="" />
+                                                                }
+                                                            </div>
+                                                            <div class="col-md-8 col-sm-12 col-xs-12 pad-left0">
+                                                                <h4 class="product-title">@ipd.oculos.titulo</h4>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2 col-sm-2 col-xs-12">
+                                                <div class="order-data order-table text-center padTB15">
+                                                    <div class="order-table-cell order-text">
+                                                        <h4>R$@ipd.oculos.preco</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2 col-sm-2 col-xs-12">
+                                                <div class="order-data order-table text-center padTB15">
+                                                    <div class="order-table-cell box order-text boxs">
+                                                        <input type="number" value="@ipd.quantidade" min="1" class="qty" name="qty1">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2 col-sm-2 col-xs-12">
+                                                <div class="order-data order-table text-center padTB15">
+                                                    <div class="order-table-cell order-text">
+                                                        <h4>R$@(ipd.preco * @ipd.quantidade)</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-1 col-sm-1 col-xs-12">
+                                                <div class="order-data order-table text-center padTB15">
+                                                    <div class="order-table-cell order-text boxs">
+                                                        <strong class="dots-box"><a href="@Url.RouteUrl(new { controller = "carrinho", action = "removeItem", id = ipd.id })"><i class="fa fa-times" aria-hidden="true"></i></a></strong>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-1 col-sm-1 col-xs-1"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        }
+                    </div>
+            </div>
+        </div>
+        <div class="row pad-bottom80">
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                @*<div class="row">
+                    <div class="col-md-12">
+                        <h3 class="theme-headdings">Calcular frete</h3>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="col-md-12">
+                        <div class="Cart-Totals-box mar-top30">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6  billing-box select pad-top20 responsive-top">
+                                    <input type="text" name="billing_postcode" id="billing_postcode0" placeholder="Digite o CEP" class="form-controller box1 search_terms">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <a href="" class="itg-button mar-top20">Calcular frete</a>
+                    </div>
+                </div>*@
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-12 responsive-top">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3 class="theme-headdings">Dados da compra</h3>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div class="Cart-Totals-box mar-top30">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="order-data-color grey-bg text-left  order-data pad-bottom20">
+                                <div class="row">
+                                    <strong class="col-md-6 col-sm-6 col-xs-6 text-left text-cart-box">Valor total sem frete</strong> <strong class="col-md-6 col-sm-6 col-xs-6 text-left text-cart-box">R$@calculoTotalPedido</strong>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 marB20">
+                            <div class="order-data-color order-data grey-bg text-left pad-bottom30">
+                                <div class="row">
+                                    <strong class="col-md-6 col-sm-6 col-xs-6 text-left text-cart-box">Frete</strong> <strong class="col-md-6 col-sm-6 col-xs-6 text-left text-cart-box">R$10</strong>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 marB30">
+                            <div class="order-data-color order-data grey-bg text-left pad15">
+                                <div class="row">
+                                    <strong class="col-md-6 col-sm-6 col-xs-6 text-left text-cart-box">Valor total com frete</strong> <strong class="col-md-6 col-sm-6 col-xs-6 text-left text-cart-box pre">R$@(calculoTotalPedido+10)</strong>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row pad-top20">
+                    <div class="col-md-12">
+                        <a href="@Url.RouteUrl(new { controller = "checkout", action = "Index" })" class="itg-button blog-box right-bt  pull-right">Finalizar compra</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        }
+        else
+        {
+        <div class="row" style="margin-top:100px; margin-bottom:100px;">
+            <a href="@Url.RouteUrl(new { controller = "Home", action = "Index" })">
+                <p class="text-center">Carrinho vazio.</p>
+                <p class="text-center">Clique aqui para escolher um óculos.</p>
+            </a>
+        </div>
+        }
+    </div>
+</div>
+

@@ -1,0 +1,587 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="gsModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="arquivos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="titulo" Type="varchar" MaxLength="300" />
+          <Property Name="slug" Type="varchar" MaxLength="300" />
+          <Property Name="descricao" Type="text" />
+          <Property Name="data_criacao" Type="datetime" Precision="0" />
+          <Property Name="data_alteracao" Type="datetime" Precision="0" />
+          <Property Name="ordem" Type="int" />
+          <Property Name="filename" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="status" Type="int" />
+          <Property Name="secao" Type="varchar" MaxLength="300" />
+          <Property Name="referencia_id" Type="int" Nullable="false" />
+          <Property Name="tipo" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="categorias">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="titulo" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="slug" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="data_criacao" Type="datetime" Precision="0" />
+          <Property Name="data_alteracao" Type="datetime" Precision="0" />
+          <Property Name="ordem" Type="int" />
+          <Property Name="img" Type="varchar" MaxLength="100" />
+          <Property Name="status" Type="int" />
+          <Property Name="secao" Type="varchar" MaxLength="300" />
+          <Property Name="descricao" Type="text" />
+        </EntityType>
+        <EntityType Name="clientes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nome" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="sobrenome" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="senha" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="telefone" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="cep" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="cpf" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="rua" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="numero" Type="varchar" MaxLength="200" />
+          <Property Name="complemento" Type="varchar" MaxLength="200" />
+          <Property Name="bairro" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="cidade" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="estado" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="newsletter" Type="int" />
+          <Property Name="created" Type="datetime" Precision="0" />
+          <Property Name="updated" Type="datetime" Precision="0" />
+          <Property Name="status" Type="int" />
+        </EntityType>
+        <EntityType Name="formatos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="titulo" Type="varchar" MaxLength="150" />
+          <Property Name="img" Type="varchar" MaxLength="150" />
+          <Property Name="data_criacao" Type="datetime" Precision="0" />
+          <Property Name="data_alteracao" Type="datetime" Precision="0" />
+          <Property Name="slug" Type="varchar" MaxLength="150" />
+          <Property Name="ordem" Type="int" />
+          <Property Name="status" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="itens_pedido">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="oculos_id" Type="int" Nullable="false" />
+          <Property Name="preco" Type="decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="quantidade" Type="int" Nullable="false" />
+          <Property Name="pedido_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="marcas">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="titulo" Type="varchar" MaxLength="150" />
+          <Property Name="img" Type="varchar" MaxLength="150" />
+          <Property Name="data_criacao" Type="datetime" Precision="0" />
+          <Property Name="data_alteracao" Type="datetime" Precision="0" />
+          <Property Name="slug" Type="varchar" MaxLength="150" />
+          <Property Name="ordem" Type="int" />
+          <Property Name="status" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="oculos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="titulo" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="slug" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="data_criacao" Type="datetime" Precision="0" />
+          <Property Name="data_alteracao" Type="datetime" Precision="0" />
+          <Property Name="ordem" Type="int" />
+          <Property Name="status" Type="int" />
+          <Property Name="preco" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="descricao" Type="text" />
+          <Property Name="caracteristicas" Type="text" />
+          <Property Name="medidas" Type="text" />
+          <Property Name="preco_desconto" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="modelo" Type="varchar" MaxLength="150" />
+          <Property Name="masculino" Type="int" />
+          <Property Name="feminino" Type="int" />
+          <Property Name="infantil" Type="int" />
+          <Property Name="marca" Type="int" />
+        </EntityType>
+        <EntityType Name="oculos_armacoes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="oculos_id" Type="int" Nullable="false" />
+          <Property Name="armacao_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="oculos_estilos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="oculos_id" Type="int" Nullable="false" />
+          <Property Name="estilo_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="oculos_lentes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="oculos_id" Type="int" Nullable="false" />
+          <Property Name="lente_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="pedidos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="token" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="created" Type="datetime" Precision="0" />
+          <Property Name="updated" Type="datetime" Precision="0" />
+          <Property Name="status" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_itens_pedido_oculos">
+          <End Role="oculos" Type="Self.oculos" Multiplicity="1" />
+          <End Role="itens_pedido" Type="Self.itens_pedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="oculos">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="itens_pedido">
+              <PropertyRef Name="oculos_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_itens_pedido_pedidos">
+          <End Role="pedidos" Type="Self.pedidos" Multiplicity="1" />
+          <End Role="itens_pedido" Type="Self.itens_pedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pedidos">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="itens_pedido">
+              <PropertyRef Name="pedido_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="gsModelStoreContainer">
+          <EntitySet Name="arquivos" EntityType="Self.arquivos" Schema="acsm_5fe05832cd7250c" store:Type="Tables" />
+          <EntitySet Name="categorias" EntityType="Self.categorias" Schema="acsm_5fe05832cd7250c" store:Type="Tables" />
+          <EntitySet Name="clientes" EntityType="Self.clientes" Schema="acsm_5fe05832cd7250c" store:Type="Tables" />
+          <EntitySet Name="formatos" EntityType="Self.formatos" Schema="acsm_5fe05832cd7250c" store:Type="Tables" />
+          <EntitySet Name="itens_pedido" EntityType="Self.itens_pedido" Schema="acsm_5fe05832cd7250c" store:Type="Tables" />
+          <EntitySet Name="marcas" EntityType="Self.marcas" Schema="acsm_5fe05832cd7250c" store:Type="Tables" />
+          <EntitySet Name="oculos" EntityType="Self.oculos" Schema="acsm_5fe05832cd7250c" store:Type="Tables" />
+          <EntitySet Name="oculos_armacoes" EntityType="Self.oculos_armacoes" Schema="acsm_5fe05832cd7250c" store:Type="Tables" />
+          <EntitySet Name="oculos_estilos" EntityType="Self.oculos_estilos" Schema="acsm_5fe05832cd7250c" store:Type="Tables" />
+          <EntitySet Name="oculos_lentes" EntityType="Self.oculos_lentes" Schema="acsm_5fe05832cd7250c" store:Type="Tables" />
+          <EntitySet Name="pedidos" EntityType="Self.pedidos" Schema="acsm_5fe05832cd7250c" store:Type="Tables" />
+          <AssociationSet Name="FK_itens_pedido_oculos" Association="Self.FK_itens_pedido_oculos">
+            <End Role="oculos" EntitySet="oculos" />
+            <End Role="itens_pedido" EntitySet="itens_pedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK_itens_pedido_pedidos" Association="Self.FK_itens_pedido_pedidos">
+            <End Role="pedidos" EntitySet="pedidos" />
+            <End Role="itens_pedido" EntitySet="itens_pedido" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="gsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="gsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="arquivos" EntityType="gsModel.arquivos" />
+          <EntitySet Name="categorias" EntityType="gsModel.categorias" />
+          <EntitySet Name="itens_pedido" EntityType="gsModel.itens_pedido" />
+          <EntitySet Name="oculos" EntityType="gsModel.oculos" />
+          <EntitySet Name="oculos_armacoes" EntityType="gsModel.oculos_armacoes" />
+          <EntitySet Name="oculos_estilos" EntityType="gsModel.oculos_estilos" />
+          <EntitySet Name="oculos_lentes" EntityType="gsModel.oculos_lentes" />
+          <EntitySet Name="pedidos" EntityType="gsModel.pedidos" />
+          <AssociationSet Name="FK_itens_pedido_oculos" Association="gsModel.FK_itens_pedido_oculos">
+            <End Role="oculos" EntitySet="oculos" />
+            <End Role="itens_pedido" EntitySet="itens_pedido" />
+          </AssociationSet>
+          <AssociationSet Name="FK_itens_pedido_pedidos" Association="gsModel.FK_itens_pedido_pedidos">
+            <End Role="pedidos" EntitySet="pedidos" />
+            <End Role="itens_pedido" EntitySet="itens_pedido" />
+          </AssociationSet>
+          <EntitySet Name="marcas" EntityType="gsModel.marcas" />
+          <EntitySet Name="formatos" EntityType="gsModel.formatos" />
+          <EntitySet Name="clientes" EntityType="gsModel.clientes" />
+        </EntityContainer>
+        <EntityType Name="arquivos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="titulo" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="slug" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="descricao" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="data_criacao" Type="DateTime" />
+          <Property Name="data_alteracao" Type="DateTime" />
+          <Property Name="ordem" Type="Int32" />
+          <Property Name="filename" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="secao" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="referencia_id" Type="Int32" Nullable="false" />
+          <Property Name="tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="categorias">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="titulo" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="slug" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="data_criacao" Type="DateTime" />
+          <Property Name="data_alteracao" Type="DateTime" />
+          <Property Name="ordem" Type="Int32" />
+          <Property Name="img" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="secao" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="descricao" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="itens_pedido">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="oculos_id" Type="Int32" Nullable="false" />
+          <Property Name="preco" Type="Decimal" Nullable="false" />
+          <Property Name="quantidade" Type="Int32" Nullable="false" />
+          <Property Name="pedido_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="oculos" Relationship="gsModel.FK_itens_pedido_oculos" FromRole="itens_pedido" ToRole="oculos" />
+          <NavigationProperty Name="pedidos" Relationship="gsModel.FK_itens_pedido_pedidos" FromRole="itens_pedido" ToRole="pedidos" />
+        </EntityType>
+        <EntityType Name="oculos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="titulo" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="slug" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="data_criacao" Type="DateTime" />
+          <Property Name="data_alteracao" Type="DateTime" />
+          <Property Name="ordem" Type="Int32" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="preco" Type="Decimal" />
+          <Property Name="descricao" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="caracteristicas" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="medidas" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="preco_desconto" Type="Decimal" />
+          <Property Name="modelo" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="masculino" Type="Int32" />
+          <Property Name="feminino" Type="Int32" />
+          <Property Name="infantil" Type="Int32" />
+          <Property Name="marca" Type="Int32" />
+          <NavigationProperty Name="itens_pedido" Relationship="gsModel.FK_itens_pedido_oculos" FromRole="oculos" ToRole="itens_pedido" />
+        </EntityType>
+        <EntityType Name="oculos_armacoes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="oculos_id" Type="Int32" Nullable="false" />
+          <Property Name="armacao_id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="oculos_estilos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="oculos_id" Type="Int32" Nullable="false" />
+          <Property Name="estilo_id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="oculos_lentes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="oculos_id" Type="Int32" Nullable="false" />
+          <Property Name="lente_id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="pedidos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="token" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="created" Type="DateTime" />
+          <Property Name="updated" Type="DateTime" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="itens_pedido" Relationship="gsModel.FK_itens_pedido_pedidos" FromRole="pedidos" ToRole="itens_pedido" />
+        </EntityType>
+        <Association Name="FK_itens_pedido_oculos">
+          <End Type="gsModel.oculos" Role="oculos" Multiplicity="1" />
+          <End Type="gsModel.itens_pedido" Role="itens_pedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="oculos">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="itens_pedido">
+              <PropertyRef Name="oculos_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_itens_pedido_pedidos">
+          <End Type="gsModel.pedidos" Role="pedidos" Multiplicity="1" />
+          <End Type="gsModel.itens_pedido" Role="itens_pedido" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pedidos">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="itens_pedido">
+              <PropertyRef Name="pedido_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="marcas">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="titulo" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="img" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="data_criacao" Type="DateTime" />
+          <Property Name="data_alteracao" Type="DateTime" />
+          <Property Name="slug" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ordem" Type="Int32" />
+          <Property Name="status" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="formatos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="titulo" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="img" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="data_criacao" Type="DateTime" />
+          <Property Name="data_alteracao" Type="DateTime" />
+          <Property Name="slug" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ordem" Type="Int32" />
+          <Property Name="status" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="clientes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nome" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="sobrenome" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="senha" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="telefone" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="cep" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="cpf" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="rua" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="numero" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="complemento" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="bairro" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="cidade" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="estado" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="newsletter" Type="Int32" />
+          <Property Name="created" Type="DateTime" />
+          <Property Name="updated" Type="DateTime" />
+          <Property Name="status" Type="Int32" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="gsModelStoreContainer" CdmEntityContainer="gsEntities">
+          <EntitySetMapping Name="arquivos">
+            <EntityTypeMapping TypeName="gsModel.arquivos">
+              <MappingFragment StoreEntitySet="arquivos">
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+                <ScalarProperty Name="referencia_id" ColumnName="referencia_id" />
+                <ScalarProperty Name="secao" ColumnName="secao" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="filename" ColumnName="filename" />
+                <ScalarProperty Name="ordem" ColumnName="ordem" />
+                <ScalarProperty Name="data_alteracao" ColumnName="data_alteracao" />
+                <ScalarProperty Name="data_criacao" ColumnName="data_criacao" />
+                <ScalarProperty Name="descricao" ColumnName="descricao" />
+                <ScalarProperty Name="slug" ColumnName="slug" />
+                <ScalarProperty Name="titulo" ColumnName="titulo" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="categorias">
+            <EntityTypeMapping TypeName="gsModel.categorias">
+              <MappingFragment StoreEntitySet="categorias">
+                <ScalarProperty Name="descricao" ColumnName="descricao" />
+                <ScalarProperty Name="secao" ColumnName="secao" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="img" ColumnName="img" />
+                <ScalarProperty Name="ordem" ColumnName="ordem" />
+                <ScalarProperty Name="data_alteracao" ColumnName="data_alteracao" />
+                <ScalarProperty Name="data_criacao" ColumnName="data_criacao" />
+                <ScalarProperty Name="slug" ColumnName="slug" />
+                <ScalarProperty Name="titulo" ColumnName="titulo" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="itens_pedido">
+            <EntityTypeMapping TypeName="gsModel.itens_pedido">
+              <MappingFragment StoreEntitySet="itens_pedido">
+                <ScalarProperty Name="pedido_id" ColumnName="pedido_id" />
+                <ScalarProperty Name="quantidade" ColumnName="quantidade" />
+                <ScalarProperty Name="preco" ColumnName="preco" />
+                <ScalarProperty Name="oculos_id" ColumnName="oculos_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="oculos">
+            <EntityTypeMapping TypeName="gsModel.oculos">
+              <MappingFragment StoreEntitySet="oculos">
+                <ScalarProperty Name="marca" ColumnName="marca" />
+                <ScalarProperty Name="infantil" ColumnName="infantil" />
+                <ScalarProperty Name="feminino" ColumnName="feminino" />
+                <ScalarProperty Name="masculino" ColumnName="masculino" />
+                <ScalarProperty Name="modelo" ColumnName="modelo" />
+                <ScalarProperty Name="preco_desconto" ColumnName="preco_desconto" />
+                <ScalarProperty Name="medidas" ColumnName="medidas" />
+                <ScalarProperty Name="caracteristicas" ColumnName="caracteristicas" />
+                <ScalarProperty Name="descricao" ColumnName="descricao" />
+                <ScalarProperty Name="preco" ColumnName="preco" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="ordem" ColumnName="ordem" />
+                <ScalarProperty Name="data_alteracao" ColumnName="data_alteracao" />
+                <ScalarProperty Name="data_criacao" ColumnName="data_criacao" />
+                <ScalarProperty Name="slug" ColumnName="slug" />
+                <ScalarProperty Name="titulo" ColumnName="titulo" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="oculos_armacoes">
+            <EntityTypeMapping TypeName="gsModel.oculos_armacoes">
+              <MappingFragment StoreEntitySet="oculos_armacoes">
+                <ScalarProperty Name="armacao_id" ColumnName="armacao_id" />
+                <ScalarProperty Name="oculos_id" ColumnName="oculos_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="oculos_estilos">
+            <EntityTypeMapping TypeName="gsModel.oculos_estilos">
+              <MappingFragment StoreEntitySet="oculos_estilos">
+                <ScalarProperty Name="estilo_id" ColumnName="estilo_id" />
+                <ScalarProperty Name="oculos_id" ColumnName="oculos_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="oculos_lentes">
+            <EntityTypeMapping TypeName="gsModel.oculos_lentes">
+              <MappingFragment StoreEntitySet="oculos_lentes">
+                <ScalarProperty Name="lente_id" ColumnName="lente_id" />
+                <ScalarProperty Name="oculos_id" ColumnName="oculos_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pedidos">
+            <EntityTypeMapping TypeName="gsModel.pedidos">
+              <MappingFragment StoreEntitySet="pedidos">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="updated" ColumnName="updated" />
+                <ScalarProperty Name="created" ColumnName="created" />
+                <ScalarProperty Name="token" ColumnName="token" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="marcas">
+            <EntityTypeMapping TypeName="gsModel.marcas">
+              <MappingFragment StoreEntitySet="marcas">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="ordem" ColumnName="ordem" />
+                <ScalarProperty Name="slug" ColumnName="slug" />
+                <ScalarProperty Name="data_alteracao" ColumnName="data_alteracao" />
+                <ScalarProperty Name="data_criacao" ColumnName="data_criacao" />
+                <ScalarProperty Name="img" ColumnName="img" />
+                <ScalarProperty Name="titulo" ColumnName="titulo" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="formatos">
+            <EntityTypeMapping TypeName="gsModel.formatos">
+              <MappingFragment StoreEntitySet="formatos">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="ordem" ColumnName="ordem" />
+                <ScalarProperty Name="slug" ColumnName="slug" />
+                <ScalarProperty Name="data_alteracao" ColumnName="data_alteracao" />
+                <ScalarProperty Name="data_criacao" ColumnName="data_criacao" />
+                <ScalarProperty Name="img" ColumnName="img" />
+                <ScalarProperty Name="titulo" ColumnName="titulo" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="clientes">
+            <EntityTypeMapping TypeName="gsModel.clientes">
+              <MappingFragment StoreEntitySet="clientes">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="updated" ColumnName="updated" />
+                <ScalarProperty Name="created" ColumnName="created" />
+                <ScalarProperty Name="newsletter" ColumnName="newsletter" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="cidade" ColumnName="cidade" />
+                <ScalarProperty Name="bairro" ColumnName="bairro" />
+                <ScalarProperty Name="complemento" ColumnName="complemento" />
+                <ScalarProperty Name="numero" ColumnName="numero" />
+                <ScalarProperty Name="rua" ColumnName="rua" />
+                <ScalarProperty Name="cpf" ColumnName="cpf" />
+                <ScalarProperty Name="cep" ColumnName="cep" />
+                <ScalarProperty Name="telefone" ColumnName="telefone" />
+                <ScalarProperty Name="senha" ColumnName="senha" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="sobrenome" ColumnName="sobrenome" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

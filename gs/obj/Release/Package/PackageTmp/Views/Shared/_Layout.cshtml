@@ -1,0 +1,413 @@
+﻿@{ 
+    gs.Models.gsEntities db = new gs.Models.gsEntities();
+    IEnumerable<gs.Models.categorias> estilo_oculos = (from o in db.categorias where o.status == 1 && o.secao == "estilo_de_oculos" orderby o.ordem ascending select o).ToList();
+    IEnumerable<gs.Models.oculos> oculosList = (from o in db.oculos where o.status == 1 orderby o.slug ascending select o).ToList();
+    IEnumerable<gs.Models.marcas> marcasList = from m in db.marcas
+                                               join o in db.oculos
+                                               on m.id equals o.marca
+                                               where m.titulo != null
+                                               && m.status > 0
+                                               select m;
+    IQueryable<gs.Models.oculos> query = db.oculos.Select(c => c);
+}
+<!DOCTYPE html>
+<html lang="en">
+<!--
+    **********************************************************************************************************
+    Copyright (c) 2017 DESIDEALS4U
+    **********************************************************************************************************
+    -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--[if IE]>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+    <![endif]-->
+    <meta name="keywords" content="HTML5 Template" />
+    <meta name="description" content="Oticaszanne - Loja de óculos" />
+    <meta name="author" content="desideals4u.com" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Oticaszanne - compre seu óculos online</title>
+    <!-- Bootstrap -->
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="@Url.Content("~/assets/img/favicon.ico")" type="image/x-icon">
+    <link rel="icon" href="@Url.Content("~/assets/img/favicon.ico")" type="image/x-icon">
+    <!-- Master Css -->
+    <link href="@Url.Content("~/main.css")" rel="stylesheet">
+    <link href="@Url.Content("~/assets/plugin/switcher/css/switcher.css")" rel="stylesheet">
+    <link href="@Url.Content("~/assets/css/color.css")" rel="stylesheet" id="colors">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <header>
+        <!--//==preloader Start==//-->
+        <div class="loading">
+            <div class="wrapper-box">
+                <div class="circle circle-1"></div>
+                <div class="circle circle-1a"></div>
+                <div class="circle circle-2"></div>
+                <div class="circle circle-3"></div>
+                <h3 class="text-center">Loading&hellip;</h3>
+            </div>
+        </div>
+        <!--//==preloader End==//-->
+        <!--//==top bar start==//-->
+        <div class="top-middle-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="row pad-top-bottom25 head-top-sec">
+                            <div class="col-md-6 col-sm-3 col-xs-12 ">
+                                <figure class="logo-box">
+                                    <a class="" href="@Url.RouteUrl(new { controller = "home", action = "Index" })">
+                                        <img alt="" src="@Url.Content("~/assets/img/logo.png")">
+                                    </a>
+                                </figure>
+                            </div>
+                            <div class="col-md-6 col-sm-9 col-xs-12">
+                                <div class="row">
+                                    <div class="top-bars-icon-section">
+                                        <div class="col-md-4 col-sm-4 col-xs-12">
+                                            <div class="top-icons-box1">
+                                                <a href="#"><i class="fa fa-phone" aria-hidden="true"></i></a>
+                                            </div>
+                                            <div class="top-icons-box2">
+                                                <p><a href="#">21 99428-3616</a></p>
+                                                <p><a href="#">21 97319-2724</a></p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-sm-4 col-xs-12">
+                                            <div class="top-icons-box1">
+                                                <a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>
+                                            </div>
+                                            <div class="top-icons-box2">
+                                                <p><a href="#">hugo.saboya@gmail.com</a></p>
+                                                <p><a href="#">ph1987@gmail.com</a></p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-sm-4 col-xs-12">
+                                            <div class="top-icon-box3">
+                                                <ul>
+                                                    <li class="footer-icon-left"><a target="_blank" href="https://www.facebook.com/hugossaboya" class=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                                    <li><a target="_blank" href="#" class=""><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--//==mega menu start==//-->
+        <div id="main-menu" class="wa-main-menu">
+            <!-- Menu -->
+            <div class="wathemes-menu relative">
+                <!-- navbar -->
+                <div class="navbar navbar-default navbar-bg-dark" role="navigation">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-8 col-sm-8 col-xs-12">
+                                <div class="navbar-header pad-top15 pad-bottom15">
+                                    <!-- Button For Responsive toggle -->
+                                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                    <div class="icons-section boxx pull-right">
+                                        <ul>
+                                            <li class="hidden-sm hidden-md hidden-lg hover-mini-cart">
+                                                <a href="#" class="mini-cart-icon"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                                                <div class="mini-card-section">
+                                                    <div class="mini-cart-product-box pad-top20">
+                                                        <div class="cart-img-box">
+                                                            <figure>
+                                                                <img src="@Url.Content("~/assets/img/all/mini-cart-img1.jpg")" alt="">
+                                                            </figure>
+                                                        </div>
+                                                        <div class="cart-price-box">
+                                                            <h5><a href="product-detail.html">Modern Chairs</a></h5>
+                                                            <p>$100x1</p>
+                                                        </div>
+                                                        <div class="cancle-box">
+                                                            <a href="#">x</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mini-cart-product-box pad-top20">
+                                                        <div class="cart-img-box">
+                                                            <figure>
+                                                                <img src="@Url.Content("~/assets/img/all/mini-cart-img1.jpg")" alt="">
+                                                            </figure>
+                                                        </div>
+                                                        <div class="cart-price-box">
+                                                            <h5><a href="product-detail.html">Modern Chairs</a></h5>
+                                                            <p>$100x1</p>
+                                                        </div>
+                                                        <div class="cancle-box">
+                                                            <a href="#">x</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="price-text-sec pull-right pad-top10">
+                                                        <p>Total $200
+                                                        <p>
+                                                    </div>
+                                                    <div class="clear"></div>
+                                                    <div class="price-button-box pad-top10 pad-bottom20 pull-right">
+                                                        <a href="cart.html" class="itg-button View-btns">Carrinho</a>
+                                                        <a href="checkout.html" class="itg-button pull-right Checkout-btns">Finalizar Compra</a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <a class="navbar-brand hidden-sm hidden-md hidden-lg logo-second" href="index.html">
+                                        <img class="site_logo" alt="Site Logo" src="@Url.Content("~/assets/img/menu-logo.png")">
+                                    </a>
+                                </div>
+                                <!-- Navbar Collapse -->
+                                <div class="navbar-collapse collapse">
+                                    <!-- nav -->
+                                    <ul class="nav navbar-nav">
+                                        <li>
+                                            <a href="@Url.RouteUrl(new { controller = "home", action = "Index" })">Home</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Encontre seu óculos</a>
+                                            <ul class="dropdown-menu">
+                                                <li class="left-side">
+                                                    <a href="#">Por gênero</a>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a href="@Url.RouteUrl(new { controller = "home", action = "Index", genero = "masculino", estilo = Request.QueryString["estilo"], marca = Request.QueryString["marca"] })">masculino</a></li>
+                                                        <li><a href="@Url.RouteUrl(new { controller = "home", action = "Index", genero = "feminino", estilo = Request.QueryString["estilo"], marca = Request.QueryString["marca"] })">feminino</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="left-side">
+                                                    <a href="#">Por estilo</a>
+                                                    <ul class="dropdown-menu">
+                                                        @foreach (var e in estilo_oculos)
+                                                        {
+                                                            var oe = db.oculos_estilos.Where(t => t.estilo_id == e.id).ToList();
+                                                            if (oe.Count > 0)
+                                                            {
+                                                                var glassId = oe.FirstOrDefault().oculos_id;
+                                                                var verificaOculosAtivo = db.oculos.Where(t => t.id == glassId && t.status == 1).ToList();
+                                                                if (verificaOculosAtivo.Count > 0)
+                                                                {
+                                                                    <li><a href="@Url.RouteUrl(new { controller = "home", action = "Index", genero = Request.QueryString["genero"], estilo = @e.titulo, marca = Request.QueryString["marca"] })">@e.titulo</a></li>
+                                                                }
+                                                            }
+                                                        }
+                                                    </ul>
+                                                </li>
+                                                <li class="left-side">
+                                                    <a href="#">Por marca</a>
+                                                    <ul class="dropdown-menu">
+                                                        @foreach (var m in marcasList)
+                                                        {
+                                                            <li><a href="@Url.RouteUrl(new { controller = "home", action = "Index", genero = Request.QueryString["genero"], estilo = Request.QueryString["estilo"], marca = @m.slug })">@m.titulo</a></li>
+                                                        }
+                                                    </ul>
+                                                </li>
+                                                @*<li class="left-side">
+                                                    <a href="#">Por formato</a>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a href="@Url.RouteUrl(new { controller = "home", action = "Index", estilo = "-" })">-</a></li>
+                                                    </ul>
+                                                </li>*@
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="@Url.RouteUrl(new { controller = "contato", action = "Index" })">
+                                                Contato
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- navbar-collapse -->
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-9 hidden-xs">
+                                <div class="icons-section pad-top20 pull-right">
+                                    <ul>
+                                        <li class="search-box1 hidden-xs">
+                                            <div class="search-box-top-bar">
+                                                <input type="text" id="tags" name="search" class="search_terms" placeholder="Buscar">
+                                                <button class="button-style" type="submit" value=""><i class="fa fa-search" aria-hidden="true"></i></button>
+                                            </div>
+                                        </li>
+                                        <li class="hidden-xs hover-mini-cart">
+                                            <a href="#" class="mini-cart-icon"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                                            <div class="mini-card-section">
+                                                @{
+                                                    HttpCookie gshopCookie = Request.Cookies["mycookiegs"];
+                                                    decimal calculoTotalPedido = 0;
+                                                    if (gshopCookie != null)
+                                                    {
+                                                        string tkn = gshopCookie.Value.ToString();
+                                                        var pedidosCarrinho = db.pedidos.Where(t => t.token == tkn).FirstOrDefault();
+                                                        if (pedidosCarrinho != null)
+                                                        {
+                                                            var itensPedidoCarrinho = (from ip in db.itens_pedido where ip.pedidos.id == pedidosCarrinho.id select ip).ToList();
+                                                            foreach (var itemPedido in itensPedidoCarrinho)
+                                                            {
+                                                                calculoTotalPedido = calculoTotalPedido + (itemPedido.preco * itemPedido.quantidade);
+                                                                <div class="mini-cart-product-box pad-top20">
+                                                                    <div class="cart-img-box">
+                                                                        <figure>
+                                                                            @{ 
+                                                                                var imgItemPedido = db.arquivos.Where(t => t.referencia_id == itemPedido.oculos_id).OrderBy(t => t.ordem).FirstOrDefault();
+                                                                            }
+                                                                            @if (imgItemPedido != null)
+                                                                            {
+                                                                                <img src="@Url.Content("~/uploads/" + imgItemPedido.filename)" alt="" />
+                                                                            }
+                                                                            else
+                                                                            {
+                                                                                <img src="@Url.Content("~/assets/img/all/mini-cart-img1.jpg")" alt="" />
+                                                                            }
+                                                                        </figure>
+                                                                    </div>
+                                                                    <div class="cart-price-box">
+                                                                        <h5><a href="@Url.RouteUrl(new { controller = "oculos", action = "Index", id = itemPedido.oculos_id })">@itemPedido.oculos.titulo</a></h5>
+                                                                        <p>R$@(itemPedido.preco)x@(itemPedido.quantidade)</p>
+                                                                    </div>
+                                                                    <div class="cancle-box">
+                                                                        <a href="@Url.RouteUrl(new { controller = "Home", action = "removeItem", id = itemPedido.id })">x</a>
+                                                                    </div>
+                                                                </div>
+                                                            }
+                                                        }
+                                                        <div class="price-text-sec pull-right pad-top10">
+                                                            <p>Total R$@calculoTotalPedido
+                                                            <p>
+                                                        </div>
+                                                        <div class="clear"></div>
+                                                        <div class="price-button-box pad-top10 pad-bottom20 pull-right">
+                                                            <a href="@Url.RouteUrl(new { controller = "carrinho", action = "Index" })" class="itg-button View-btns">Carrinho</a>
+                                                            <a href="@Url.RouteUrl(new { controller = "checkout", action = "Index" })" class="itg-button pull-right Checkout-btns">Finalizar compra</a>
+                                                        </div>
+                                                    }
+                                                }
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- col-md-12 -->
+                        </div>
+                        <!-- row -->
+                    </div>
+                    <!-- container -->
+                </div>
+                <!-- navbar -->
+            </div>
+            <!--  Menu -->
+        </div>
+        <!--//==mega menu end==//-->
+    </header>
+    <!--//==collection-section End==//-->
+    <!--//===Start quick vive popap==//-->
+    <!--//================Quick view Start ==============//-->
+    @RenderBody()
+    <!--//===Partner-section End==//-->
+    <!--//===footer-main-section Start==//-->
+    <footer>
+        <div class="footer-main-section">
+            <div class="footer-bottom-bar pad-top-bottom25">
+                <p>Copyright © 2017 Developed by  <span class="footer-text">phldev</span></p>
+            </div>
+        </div>
+    </footer>
+    <div id="style-switcher" style="left: 0px; display: none;">
+        <h2>Choose Color<a href="#"><i class="fa fa-cog fa-spin"></i></a></h2>
+        <div>
+            <ul class="colors" id="color1">
+                <li>
+                    <a href="#" class="color"></a>
+                </li>
+                <li>
+                    <a href="#" class="color1"></a>
+                </li>
+                <li>
+                    <a href="#" class="color2"></a>
+                </li>
+                <li>
+                    <a href="#" class="color3"></a>
+                </li>
+                <li>
+                    <a href="#" class="color4"></a>
+                </li>
+                <li>
+                    <a href="#" class="color5"></a>
+                </li>
+                <li>
+                    <a href="#" class="color6 active"></a>
+                </li>
+                <li>
+                    <a href="#" class="color7"></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--//===footer-main-section End==//-->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="@Url.Content("~/assets/js/jquery.min.js")"></script>
+    <script src="@Url.Content("~/assets/js/bootstrap.min.js")"></script>
+    <script src="@Url.Content("~/assets/plugin/owl-carousel-slider/js/owl.carousel.min.js")"></script>
+    <script src="@Url.Content("~/assets/plugin/menu-menu/js/hover-dropdown-menu.js")"></script>
+    <script src="@Url.Content("~/assets/plugin/fancyBox/js/jquery.fancybox.pack.js")"></script>
+    <script src="@Url.Content("~/assets/plugin/fancyBox/js/jquery.fancybox-media.js")"></script>
+    <script src="@Url.Content("~/assets/plugin/vertical-slider/js/jquery.bxslider.js")"></script>
+    <script src="@Url.Content("~/assets/plugin/acordian/js/jquery-ui.js")"></script>
+    <script src="@Url.Content("~/assets/plugin/menu-menu/js/jquery.hover-dropdown-menu-addon.js")"></script>
+    <script src="@Url.Content("~/assets/plugin/switcher/js/switcher.js")"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="@Url.Content("~/assets/js/main.js")"></script>
+
+    <script>
+      $( function() {
+        var availableTags = [
+          @{ 
+              foreach(var o in oculosList)
+              {
+                  <text>"@o.slug",</text>
+              }
+          }
+        ];
+        $( "#tags" ).autocomplete({
+          source: availableTags
+        });
+      } );
+    </script>
+
+    <script type="text/javascript">
+    $(document).ready(function () {
+        $('#cep').blur(function () {
+            var cep = $('#cep').val() || '';
+            if (!cep) {
+                return;
+            }
+            var url = 'http://viacep.com.br/ws/' + cep + '/json';
+            $.getJSON(url, function (data) {
+                if ("error" in data) {
+                    return;
+                }
+                $('#rua').val(data.logradouro);
+                $('#bairro').val(data.bairro);
+                $('#cidade').val(data.localidade);
+                $('#uf').val(data.uf);
+            });
+        });
+    });
+    </script>
+</body>
+</html>

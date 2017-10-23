@@ -1,0 +1,67 @@
+/*------------------------------------------------------------------
+[Master Stylesheet]
+
+Project:	Furniturecraft - Multipurpose Ecommerce Responsive Html5 template	
+Version:	1.0.0
+Assigned to:	Themeforest
+Primary use:	Furniture Store, E-commerce, Sofa, Furniture Designer, Multipurpose, Responsive  
+-------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------
+[Table of contents]
+
+1. Body / body
+2. Default / img
+3. Padding / .pad-top0
+4. Margin / .mar-top0
+5. Top bar / .top-bars-icon-section
+6. Slider / .slider-section
+7. collection / .collection-section
+8. Categories / .Categories-box
+9. Products / .products-section
+10. Featured / .Featured-Product-sectoin
+11. Product items / .product-items-section
+12. Banner / .banner-text-box
+13. Background image / .special-style
+14. Blog / .blog-section
+15. Partner / .Partner-section
+16. Footer / .footer-main-section
+17. Breadcrumb / .breadcrumb-section-box
+18. Blog griad / .blog-griad
+19. Account page / .tab button
+20. Side bar / .Categories
+21. Accordion / .faq-section
+22. Contact page / .Faqs-box
+23. Checkout page / .checkbox.top
+24. Cart page / .product-order-table
+25. blog / .blog-paragraph-text
+26. Collection / .page-tool
+27. Preloader / .loading
+28. Quick View / .Quick-view-popup
+29. Service Page / .service-section-singal
+30. Vertical Slider / .vertical-slider-box
+
+-------------------------------------------------------------------*/
+/*-----------------------------------------------------------------
+[All Css Import]
+-------------------------------------------------------------------*/
+
+/*---bootstap.CSS inluad---*/
+@import url("assets/css/bootstrap.min.css");
+/*---font-awesome css inluad---*/
+@import url("assets/plugin/font-awesome/css/font-awesome.min.css");
+/*---megamenu css inluad---*/
+@import url("assets/plugin/menu-menu/css/hover-dropdown-menu.css");
+/*---slider css inluad---*/
+@import url("assets/plugin/owl-carousel-slider/css/owl.carousel.css");
+@import url("assets/plugin/owl-carousel-slider/css/owl.theme.default.css");
+/*---fancyBox.css inluad---*/
+@import url("assets/plugin/fancyBox/css/jquery.fancybox.css");
+/*---acordian.css inluad---*/
+@import url("assets/plugin/acordian/css/jquery-ui.css");
+/*---vertical.css inluad---*/
+@import url("assets/plugin/vertical-slider/css/jquery.bxslider.css");
+/*---style.css inluad---*/
+@import url("assets/css/style.css");
+/*---sresponsive.css inluad---*/
+@import url("assets/css/responsive.css");

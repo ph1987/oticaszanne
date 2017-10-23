@@ -1,0 +1,315 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    gs.Models.gsEntities db = new gs.Models.gsEntities();
+    decimal calculoTotalPedido = 0;
+}
+
+<div class="breadcrumb-section-box">
+    <div class="special-style special-style-full special-style-semidark col-md-12 col-md-offset-0 pull-right">
+        <div class="bg-image" style="background-image:url(@Url.Content("~/assets/img/all/breadcrumb-img.png"));"></div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 pad-top100 pad-bottom100 heading-box">
+                <h3 class="heading-breadcrumb box-z text-center">Checkout</h3>
+                <div class="clear"></div>
+                <div class="breadcrumb-box">
+                    <ul class="breadcrumb">
+                        <li>
+                            <a class="sab-heading-breadcrumb box-z" href="@Url.RouteUrl(new { controller = "home", action = "Index" })">home</a>
+                        </li>
+                        <li class="heading-wa box-z activ">Checkout</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="blog-griad">
+    <section class="single-page product-checkout">
+        <div class="container">
+            <div class="row pad-top80 pad-bottom80">
+                <div class="col-md-12">
+                    <div class="market-info">
+                        <i class="fa fa-exclamation-circle" aria-hidden="true"></i> Já é cadastrado? <a class="showlogin box-title-cart" href=""> Clique aqui para fazer login</a>
+                    </div>
+                    <form action="#" method="post" class="login box row">
+                        @*<div class="col-md-12">
+                            <p>If you have shopped with us before, please enter your details in the boxes below. If you are a new customer please proceed to &amp; Shipping section.</p>
+                        </div>*@
+                        <p class="form-row col-sm-6 pd-right Post-box-Comment ">
+                            <label for="usern">Email <span class="required">*</span></label>
+                            <input type="text" name="usern" id="usern" class="form-controller search_terms">
+                        </p>
+                        <p class="form-row col-sm-6 pd-left Post-box-Comment ">
+                            <label for="password">Senha <span class="required">*</span></label>
+                            <input type="password" name="password" id="password" class="form-controller search_terms">
+                        </p>
+                        <div class="form-row col-sm-12 from-text pad-top10">
+                            <button type="submit" class="itg-button mar-right20 responsive-top1"><span>Login</span></button>
+                            @*<label class="inline" for="rememberme">
+                                <input type="checkbox" class="search_terms" value="forever" id="rememberme" name="rememberme"> Remember me
+                            </label>*@
+                        </div>
+                        <p class="lost_password col-sm-12 pad-top10">
+                            <a href="#">Esqueceu sua senha? Clique aqui</a>
+                        </p>
+                    </form>
+                </div>
+                <!-- /.col-md-6 -->
+                <div class="col-md-12 mar-top30">
+                    <div class="market-info">
+                        <i class="fa fa-exclamation-circle" aria-hidden="true"></i>Ainda não é cadastrado?<a class="showcoupon box-title-cart" href=""> Clique aqui</a>
+                    </div>
+                    @using (Html.BeginForm("Create", "checkout", FormMethod.Post, new { @class = "checkout_coupon row Post-box-Comment pad-top20", @id = "theForm", enctype = "multipart/form-data" }))
+                    {
+                    @*<form action="#" method="post" class="checkout_coupon row Post-box-Comment pad-top20">*@
+                        <div class="form-row col-sm-6">
+                            <label for="billing_first_name1">Nome</label>
+                            <input type="text" name="nome" id="nome" class="form-controller search_terms">
+                        </div>
+                        <div class="form-row col-sm-6 search-boxs-top">
+                            <label for="billing_last_na">Sobrenome</label>
+                            <input type="text" name="sobrenome" id="sobrenome" class="form-controller search_terms">
+                        </div>
+                        <div class="form-row col-sm-4 search-boxs-top">
+                            <label for="billing_Addr">Email (será também seu Login)</label>
+                            <input type="text" name="email" id="email" class="form-controller search_terms">
+                        </div>
+                        <div class="form-row col-sm-4 search-boxs-top">
+                            <label for="billing_Addr">Senha</label>
+                            <input type="password" name="senha" id="senha" class="form-controller search_terms">
+                        </div>
+                        <div class="form-row col-sm-4 search-boxs-top">
+                            <label for="billing_P1">Telefone</label>
+                            <input type="text" name="telefone" id="telefone" class="form-controller search_terms">
+                        </div>
+                        <div class="form-row col-sm-6 search-boxs-top">
+                            <label for="billing_postcode2">CEP</label>
+                            <input type="text" name="cep" id="cep" class="form-controller search_terms">
+                        </div>
+                        <div class="form-row col-sm-6 search-boxs-top">
+                            <label for="billing_postcode2">CPF</label>
+                            <input type="text" name="cpf" id="cpf" class="form-controller search_terms">
+                        </div>
+                        <div class="form-row col-sm-4 search-boxs-top">
+                            <label for="billing_postcode2">Rua</label>
+                            <input type="text" name="rua" id="rua" readonly="readonly">
+                        </div>
+                        <div class="form-row col-sm-4 search-boxs-top">
+                            <label for="billing_postcode2">Número</label>
+                            <input type="text" name="numero" id="numero">
+                        </div>
+                        <div class="form-row col-sm-4 search-boxs-top">
+                            <label for="billing_postcode2">Complemento</label>
+                            <input type="text" name="complemento" id="complemento">
+                        </div>
+
+                        <div class="form-row col-sm-4 search-boxs-top">
+                            <label for="billing_postcode2">Bairro</label>
+                            <input type="text" name="bairro" id="bairro" readonly="readonly">
+                        </div>
+                        <div class="form-row col-sm-4 search-boxs-top">
+                            <label for="billing_postcode2">Cidade</label>
+                            <input type="text" id="cidade" name="cidade" readonly="readonly">
+                        </div>
+                        <div class="form-row col-sm-4 search-boxs-top">
+                            <label for="billing_postcode2">Estado</label>
+                            <input type="text" id="uf" name="uf" readonly="readonly">
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button type="submit" class="itg-button mar-top30 pull-right">Cadastrar</button>
+                            </div>
+                        </div>
+                        <div class="create-account col-sm-12" style="display: none;">
+                            <p>Create an account by entering the information below. If you are a returning customer please login at the top of the page.</p>
+                            <p id="account_password_field">
+                                <label class="" for="account_password">Account password</label>
+                                <input type="password" value="" placeholder="Password" id="account_password" name="account_password" class="form-controller search_terms">
+                            </p>
+                        </div>
+                    @*</form>*@
+                    }
+                </div>
+                <!-- /.col-md-6 -->
+            </div>
+            <!-- /.row -->
+            <div class="clear"></div>
+        </div>
+        <!-- /.container -->
+    </section>
+    <div class="container pad-bottom80">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="theme-headdings mar-bottom30">Seu pedido</h3>
+            </div>
+        </div>
+        @if (ViewBag.itensPedidoCarrinho != null)
+        {
+        <div class="row">
+            <div class="col-md-12 col-sm-12  col-xs-12 ">
+                <div class="clear"></div>
+                <div class=" hidden-xs pad-top-bottom15 order-bosx price">
+                    <div class=" row">
+                        <div class="col-md-12 col-sm-12 col-xs-12 ">
+                            <div class="row">
+                                <div class="col-md-1 col-sm-1 col-xs-12">
+                                    <div class="text-c  order-data grey-bg text-center pad15"></div>
+                                </div>
+                                <div class="col-md-3 col-sm-3 col-xs-12">
+                                    <div class="text-c  order-data grey-bg text-center pad15">
+                                        <h4>Produto</h4>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 col-sm-2 marB30">
+                                    <div class="text-c  order-data grey-bg text-center pad15">
+                                        <h4>Preço</h4>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 col-sm-2 marB30">
+                                    <div class="text-c  order-data grey-bg text-center pad15">
+                                        <h4>Quantidade</h4>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 col-sm-2 marB30">
+                                    <div class="text-c  order-data grey-bg text-center pad15">
+                                        <h4>Total</h4>
+                                    </div>
+                                </div>
+                                <div class="col-md-1 col-sm-1 marB30">
+                                    <div class="text-c  order-data grey-bg text-center pad15">
+                                        <h4>Status</h4>
+                                    </div>
+                                </div>
+                                <div class="col-md-1 col-sm-1 col-xs-12">
+                                    <div class="text-c  order-data grey-bg text-center pad15"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-order-table">
+                    @foreach (var ipd in ViewBag.itensPedidoCarrinho)
+                    {
+                        calculoTotalPedido = calculoTotalPedido + (ipd.preco * ipd.quantidade);
+                        <div class="row">
+                            <div class="col-md-12 col-md-12 col-xs-12 pad-top40 pad-bottom50">
+                                <div class="row">
+                                    <div class="order-row padTB20">
+                                        <div class="col-md-1 col-sm-1 col-xs-1"></div>
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <div class="row">
+                                                <div class="text-c b order-data order-table padTB15 text-center">
+                                                    <div class="order-table-cell">
+                                                        <div class="col-md-4 col-sm-6 col-xs-12 col-xs-12">
+                                                            @{
+                                                                int oculosId = ipd.oculos_id;
+                                                                var imgItemPedido = db.arquivos.Where(t => t.referencia_id == oculosId).OrderBy(t => t.ordem).FirstOrDefault();
+                                                            }
+                                                            @if (imgItemPedido != null)
+                                                            {
+                                                                <img src="@Url.Content("~/uploads/" + imgItemPedido.filename)" alt="" />
+                                                            }
+                                                            else
+                                                            {
+                                                                <img src="@Url.Content("~/assets/img/all/cart-img1.jpg")" alt="" />
+                                                            }
+                                                        </div>
+                                                        <div class="col-md-8 col-sm-12 col-xs-12 pad-left0">
+                                                            <h4 class="product-title"><a href="">@ipd.oculos.titulo</a></h4>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2 col-sm-2 col-xs-12">
+                                            <div class="order-data order-table text-center padTB15">
+                                                <div class="order-table-cell order-text">
+                                                    <h4>R$@ipd.oculos.preco</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2 col-sm-2 col-xs-12">
+                                            <div class="order-data order-table text-center padTB15">
+                                                <div class="order-table-cell box order-text boxs">
+                                                    <input type="number" value="@ipd.quantidade" class="qty" name="qty1">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2 col-sm-2 col-xs-12">
+                                            <div class="order-data order-table text-center padTB15">
+                                                <div class="order-table-cell order-text">
+                                                    <h4>R$@(ipd.preco * @ipd.quantidade)</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-1 col-sm-1 col-xs-12">
+                                            <div class="order-data order-table text-center padTB15">
+                                                <div class="order-table-cell order-text boxs">
+                                                    <strong class="dots-box"><a href="@Url.RouteUrl(new { controller = "checkout", action = "removeItem", id = ipd.id })"><i class="fa fa-times" aria-hidden="true"></i></a></strong>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-1 col-sm-1 col-xs-1"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+</div>
+<div class="Payment-Method-section pad-bottom80">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-3 col-xs-3">
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-6">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3 class="theme-headdings">Total</h3>
+                    </div>
+                </div>
+                <div class="Cart-Totals-box mar-top30">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="order-data-color grey-bg text-left  order-data pad-bottom20">
+                                <div class="row">
+                                    <strong class="col-md-6 col-sm-6 col-xs-6 text-left text-cart-box">Valor total</strong> <strong class="col-md-6 col-sm-6 col-xs-6 text-left text-cart-box">R$@calculoTotalPedido</strong>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 marB20">
+                            <div class="order-data-color order-data grey-bg text-left pad-bottom30">
+                                <div class="row">
+                                    <strong class="col-md-6 col-sm-6 col-xs-6 text-left text-cart-box">Frete</strong> <strong class="col-md-6 col-sm-6 col-xs-6 text-left text-cart-box">R$10</strong>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 marB30">
+                            <div class=" order-data-color order-data grey-bg text-left pad15">
+                                <div class="row">
+                                    <strong class="col-md-6 col-sm-6 col-xs-6 text-left text-cart-box">Valor total com frete</strong> <strong class="col-md-6 col-sm-6 col-xs-6 text-left text-cart-box pre">R$@(calculoTotalPedido + 10)</strong>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button type="button" class="itg-button mar-top30 pull-right">Finalizar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>

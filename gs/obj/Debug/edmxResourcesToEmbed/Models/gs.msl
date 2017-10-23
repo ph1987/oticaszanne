@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="gsModelStoreContainer" CdmEntityContainer="gsEntities">
+    <EntitySetMapping Name="arquivos">
+      <EntityTypeMapping TypeName="gsModel.arquivos">
+        <MappingFragment StoreEntitySet="arquivos">
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="referencia_id" ColumnName="referencia_id" />
+          <ScalarProperty Name="secao" ColumnName="secao" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="filename" ColumnName="filename" />
+          <ScalarProperty Name="ordem" ColumnName="ordem" />
+          <ScalarProperty Name="data_alteracao" ColumnName="data_alteracao" />
+          <ScalarProperty Name="data_criacao" ColumnName="data_criacao" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="slug" ColumnName="slug" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="categorias">
+      <EntityTypeMapping TypeName="gsModel.categorias">
+        <MappingFragment StoreEntitySet="categorias">
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="secao" ColumnName="secao" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="img" ColumnName="img" />
+          <ScalarProperty Name="ordem" ColumnName="ordem" />
+          <ScalarProperty Name="data_alteracao" ColumnName="data_alteracao" />
+          <ScalarProperty Name="data_criacao" ColumnName="data_criacao" />
+          <ScalarProperty Name="slug" ColumnName="slug" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="itens_pedido">
+      <EntityTypeMapping TypeName="gsModel.itens_pedido">
+        <MappingFragment StoreEntitySet="itens_pedido">
+          <ScalarProperty Name="pedido_id" ColumnName="pedido_id" />
+          <ScalarProperty Name="quantidade" ColumnName="quantidade" />
+          <ScalarProperty Name="preco" ColumnName="preco" />
+          <ScalarProperty Name="oculos_id" ColumnName="oculos_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="oculos">
+      <EntityTypeMapping TypeName="gsModel.oculos">
+        <MappingFragment StoreEntitySet="oculos">
+          <ScalarProperty Name="marca" ColumnName="marca" />
+          <ScalarProperty Name="infantil" ColumnName="infantil" />
+          <ScalarProperty Name="feminino" ColumnName="feminino" />
+          <ScalarProperty Name="masculino" ColumnName="masculino" />
+          <ScalarProperty Name="modelo" ColumnName="modelo" />
+          <ScalarProperty Name="preco_desconto" ColumnName="preco_desconto" />
+          <ScalarProperty Name="medidas" ColumnName="medidas" />
+          <ScalarProperty Name="caracteristicas" ColumnName="caracteristicas" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="preco" ColumnName="preco" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="ordem" ColumnName="ordem" />
+          <ScalarProperty Name="data_alteracao" ColumnName="data_alteracao" />
+          <ScalarProperty Name="data_criacao" ColumnName="data_criacao" />
+          <ScalarProperty Name="slug" ColumnName="slug" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="oculos_armacoes">
+      <EntityTypeMapping TypeName="gsModel.oculos_armacoes">
+        <MappingFragment StoreEntitySet="oculos_armacoes">
+          <ScalarProperty Name="armacao_id" ColumnName="armacao_id" />
+          <ScalarProperty Name="oculos_id" ColumnName="oculos_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="oculos_estilos">
+      <EntityTypeMapping TypeName="gsModel.oculos_estilos">
+        <MappingFragment StoreEntitySet="oculos_estilos">
+          <ScalarProperty Name="estilo_id" ColumnName="estilo_id" />
+          <ScalarProperty Name="oculos_id" ColumnName="oculos_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="oculos_lentes">
+      <EntityTypeMapping TypeName="gsModel.oculos_lentes">
+        <MappingFragment StoreEntitySet="oculos_lentes">
+          <ScalarProperty Name="lente_id" ColumnName="lente_id" />
+          <ScalarProperty Name="oculos_id" ColumnName="oculos_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pedidos">
+      <EntityTypeMapping TypeName="gsModel.pedidos">
+        <MappingFragment StoreEntitySet="pedidos">
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="updated" ColumnName="updated" />
+          <ScalarProperty Name="created" ColumnName="created" />
+          <ScalarProperty Name="token" ColumnName="token" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="marcas">
+      <EntityTypeMapping TypeName="gsModel.marcas">
+        <MappingFragment StoreEntitySet="marcas">
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="ordem" ColumnName="ordem" />
+          <ScalarProperty Name="slug" ColumnName="slug" />
+          <ScalarProperty Name="data_alteracao" ColumnName="data_alteracao" />
+          <ScalarProperty Name="data_criacao" ColumnName="data_criacao" />
+          <ScalarProperty Name="img" ColumnName="img" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="formatos">
+      <EntityTypeMapping TypeName="gsModel.formatos">
+        <MappingFragment StoreEntitySet="formatos">
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="ordem" ColumnName="ordem" />
+          <ScalarProperty Name="slug" ColumnName="slug" />
+          <ScalarProperty Name="data_alteracao" ColumnName="data_alteracao" />
+          <ScalarProperty Name="data_criacao" ColumnName="data_criacao" />
+          <ScalarProperty Name="img" ColumnName="img" />
+          <ScalarProperty Name="titulo" ColumnName="titulo" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="clientes">
+      <EntityTypeMapping TypeName="gsModel.clientes">
+        <MappingFragment StoreEntitySet="clientes">
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="updated" ColumnName="updated" />
+          <ScalarProperty Name="created" ColumnName="created" />
+          <ScalarProperty Name="newsletter" ColumnName="newsletter" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="cidade" ColumnName="cidade" />
+          <ScalarProperty Name="bairro" ColumnName="bairro" />
+          <ScalarProperty Name="complemento" ColumnName="complemento" />
+          <ScalarProperty Name="numero" ColumnName="numero" />
+          <ScalarProperty Name="rua" ColumnName="rua" />
+          <ScalarProperty Name="cpf" ColumnName="cpf" />
+          <ScalarProperty Name="cep" ColumnName="cep" />
+          <ScalarProperty Name="telefone" ColumnName="telefone" />
+          <ScalarProperty Name="senha" ColumnName="senha" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="sobrenome" ColumnName="sobrenome" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

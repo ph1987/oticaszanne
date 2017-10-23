@@ -1,0 +1,145 @@
+﻿@model gs.Models.oculos
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    gs.Models.gsEntities db = new gs.Models.gsEntities();
+}
+<div class="breadcrumb-section-box">
+    <div class="special-style special-style-full special-style-semidark col-md-12 col-md-offset-0 pull-right">
+        <div class="bg-image" style="background-image:url(@Url.Content("~/assets/img/all/breadcrumb-img.png"));"></div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 pad-top100 pad-bottom100 heading-box">
+                <h3 class="heading-breadcrumb box-z text-center">Detalhes do produto</h3>
+                <div class="clear"></div>
+                <div class="breadcrumb-box">
+                    <ul class="breadcrumb">
+                        <li>
+                            <a class="sab-heading-breadcrumb box-z" href="@Url.RouteUrl(new { controller = "home", action = "Index" })">home</a>
+                        </li>
+                        <li class="heading-wa box-z activ">Detalhes do produto</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="blog-griad product">
+    <div class="container">
+        <div class="row pad-bottom80 pad-top80">
+            <div class="col-md-5 col-sm-5 col-xs-12">
+                <div class="row">
+                    <div class="col-md-10 col-sm-10 col-xs-12 pull-right ">
+                        <figure class="product-img">
+                            @{
+                                int idglass = Model.id;
+                                IEnumerable<gs.Models.arquivos> fotoOculos = (from o in db.arquivos where o.referencia_id == idglass orderby o.ordem ascending select o).ToList();
+                            }
+                            @if (fotoOculos.Count() > 0)
+                            {
+                                <a href="@Url.Content("~/uploads/" + fotoOculos.FirstOrDefault().filename)" class="fancybox" data-fancybox-group="group">
+                                    <img src="@Url.Content("~/uploads/" + fotoOculos.FirstOrDefault().filename)" alt="">
+                                </a>
+                            }
+                            else
+                            {
+                                <a href="@Url.Content("~/assets/img/all/product-detail1.jpg")" class="fancybox" data-fancybox-group="group">
+                                    <img src="@Url.Content("~/assets/img/all/product-detail1.jpg")" alt="">
+                                </a>
+                            }
+                        </figure>
+                    </div>
+                    <div class="col-md-2 col-sm-2 col-xs-2 popap-open hidden-xs">
+                        <div class="row responsive-top vertical-slider-box pad-top50">
+                            <div class="slider8">
+                                @if (fotoOculos.Count() > 1)
+                                {
+                                    foreach (var ft in fotoOculos)
+                                    {
+                                        <div class="col-md-12 col-sm-12 col-xs-12 pad-top30 popap-box slide">
+                                            <figure>
+                                                <a href="@Url.Content("~/uploads/" + ft.filename)" class="fancybox" data-fancybox-group="group">
+                                                    <img src="@Url.Content("~/uploads/" + ft.filename)" alt="">
+                                                </a>
+                                            </figure>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7 col-sm-7 col-xs-12 responsive-top">
+                <h3 class="theme-headdings text-left product-detail-title"><a href="#">@Model.titulo</a></h3>
+                <div class="clear"></div>
+                <div class="per-box texy-left mar-top15">
+                    <p>Morbi mollis vestibulum sollicitudin. in eros a justo facilisis rutrum. Aenean id ullamcorper libero. tempor et purus vitae, consectetur varius nunc.</p>
+                </div>
+                <div class="head-medial-text pad-top10">
+                    <p>Disponibilidade: <span class="Products-in-stock">Em estoque</span></p>
+                </div>
+                <div class="head-medial-text pad-top10">
+                    <p>Código do produto:  <span class="Products-in-stock"> #@Model.id</span></p>
+                </div>
+                <div class="col-md-5 col-sm-5 row">
+                    <div class="order-data box order-table text-center padTB15">
+                        <div class="order-table-cell order-text product-input-type">
+                            <input type="number" min="1" value="1" minv class="qty" name="qty1">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-7 col-sm-7 product-box-btm-blog row">
+                    <a href="#" class="itg-button pro btn left mar-top15">Adicionar ao carrinho</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12 pad-bottom80 pro-detals-post">
+            <div class="row">
+                <div class="tab table-box">
+                    @if (!(String.IsNullOrEmpty(Model.descricao)))
+                    {
+                        <button class="tablinks active tap-border" data-id="descript">Descrição</button> 
+                    }
+                    @if (!(String.IsNullOrEmpty(Model.caracteristicas)))
+                    {
+                        <button class="tablinks tap-border" data-id="caracteristicas">Características</button>
+                    }
+                    @if (!(String.IsNullOrEmpty(Model.medidas)))
+                    {
+                        <button class="tablinks tap-border" data-id="medidas">Medidas</button>
+                    }
+                </div>
+                <div id="descript" class="tabcontent" style="display: block;">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="Profile setting box text border pad-top20 pad-bottom20">
+                                <p>@Html.Raw(Model.descricao)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="caracteristicas" class="tabcontent" style="display: none;">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="Profile setting box text border pad-top20 pad-bottom20">
+                                <p>@Html.Raw(Model.caracteristicas)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="medidas" class="tabcontent" style="display: none;">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="Profile setting box text border pad-top20 pad-bottom20">
+                                <p>@Html.Raw(Model.medidas)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

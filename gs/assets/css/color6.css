@@ -1,0 +1,108 @@
+/*
+========================================
+hover css
+========================================
+*/
+
+ul.nav.navbar-nav.sm li a:hover,
+.headding-box span i,
+.star-box-section p i,
+.Products-in-stock,
+a.btn-read,
+ul.blog-tect-icons a:hover,
+ul.footer-box2 li a:hover,
+.footer-bottom-bar .footer-text,
+.blog-text-section h4 a:hover,
+.Profile.setting h5 a:hover,
+.Profile.setting p,
+.post-section h4 a:hover,
+.Categories ul li a:hover,
+.market-info a.showlogin:hover,
+.market-info a.showcoupon:hover,
+h4.product-title a:hover,
+.comment-title,
+.page-tool a.viewGrid:hover,
+.page-tool a.viewList:hover,
+.figure-section-hover h4 a:hover,
+h3.product-detail-title a:hover,
+span.coming-text,
+.Categories-blog .itg-button:hover,
+.cart-price-box h5 a:hover,
+.cancle-box a:hover,
+#loading-center-absolute h3,
+span.footer-text a:hover,
+a.paly-icon i:hover,
+.login-section li a:hover,
+.loading >h3,
+.loction-icon-box i,
+li.heading-wa.box-z.activ,
+.headding-icons-line,
+.service-box1 .top-icons-box1 a i,
+.text-cart-box.pre,
+.box-title-cart,
+.top-icons-box2 a:hover,
+.wrapper-box .circle,
+.wrapper-box h3 {
+    color: #d786fe;
+}
+/*
+========================================
+background css
+========================================
+*/
+
+.top-bar-section1,
+a.mini-cart-icon,
+.itg-button:hover,
+.owl-theme .owl-nav [class*='owl-']:hover,
+.headding-icons:after,
+.search-box-1 button,
+.pagination-box span:hover,
+div.tab button.active,
+div.tab button:hover,
+.tag-list a:hover,
+.order-bosx,
+.checbox-section input[type="checkbox"]:checked + label:before,
+.social-sharing-box .icons-section li a:hover,
+.ui-state-active,
+.faq-section.bar .ui-accordion .ui-accordion-header:hover,
+.rating-section .itg-button,
+.price-filter-box .ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default,
+.ui-button,
+html .ui-button.ui-state-disabled:hover,
+html .ui-button.ui-state-disabled:active,
+.navbar-default .navbar-toggle:focus,
+.navbar-default .navbar-toggle:hover,
+button.navbar-toggle,
+.contact-loction-box:hover,
+.special-style-semidark:before,
+#style-switcher h2 a,
+.boxs-404 img,
+.top-icon-box3 li a:hover,
+a.itg-button.View-btns,
+.headding-box h3:before,
+.service-section-singal,
+.heading-box h3:before,
+.products-boxes .icon-hover li:hover {
+    background-color: #d786fe;
+}
+/*
+========================================
+border css
+========================================
+*/
+
+ul.nav.navbar-nav.sm li a:hover,
+.search_terms:focus,
+.setting.box input:focus,
+.mini-cart-product-box {
+    border-bottom: 1px solid #d786fe;
+}
+.headding-icons li span,
+.partner-figures:hover,
+a.itg-button.Checkout-btns,
+.Categories-blog .itg-button:hover {
+    border: 1px solid #d786fe;
+}
